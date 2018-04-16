@@ -10,6 +10,11 @@ Connor Todd - todd37@purdue.edu
 ### Technologies To Be Used
 * Digital Ocean
 * Node JS
+* React JS
+* Visual Studio Code
+* Nginex
+* OpenSSL
+* Namecheap
 
 
 

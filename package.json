@@ -1,7 +1,12 @@
 {
-  "name": "my-app",
+  "name": "Cinnematch",
   "version": "0.1.0",
   "private": true,
+  "contributors": [
+	  "Ken Sodetz, sodetz@purdue.edu",
+	  "Cyrus Santiago, santiac@purdue.edu",
+	  "Connor Todd, todd37@purdue.edu"
+  ],
   "dependencies": {
     "react": "^16.3.1",
     "react-dom": "^16.3.1",

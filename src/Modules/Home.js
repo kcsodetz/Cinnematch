@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './Home.css';
+import { Link } from 'react-router'
+import logo from '../logo.svg';
+import '../Home.css';
 
 class Home extends Component {
   render() {
@@ -13,9 +14,13 @@ class Home extends Component {
         <p className="App-intro">
           To get started, edit <code>src/Home.js</code> and save to reload.
         </p>
+
+        <Link to="/about">About</Link>
+
       </div>
     );
   }
 }
 
 export default Home;
+

@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "contributors": [
-	  "Ken Sodetz, sodetz@purdue.edu",
-	  "Cyrus Santiago, santiac@purdue.edu",
-	  "Connor Todd, todd37@purdue.edu"
+    "Ken Sodetz, sodetz@purdue.edu",
+    "Cyrus Santiago, santiac@purdue.edu",
+    "Connor Todd, todd37@purdue.edu"
   ],
   "dependencies": {
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "react-router": "3.2.0",
+    "react-router-dom": "4.2.2"
   },
   "scripts": {
     "start": "react-scripts start",

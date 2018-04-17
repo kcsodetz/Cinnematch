@@ -15,6 +15,7 @@ Connor Todd - todd37@purdue.edu
 * Nginex
 * OpenSSL
 * Namecheap
+* Google Firebase
 
 
 

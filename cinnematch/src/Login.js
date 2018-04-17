@@ -1,15 +1,30 @@
 import React from 'react'
 
-class Login extends React.Component{
-  render() {
-    return(
-      <div>
-        <header>
-          <h1 className="App-title">login</h1>
-        </header>
-      </div>   
-    );
-  }
-}
+import './Login.css'
+import { auth, googleProvider, githubAuthProvider } from './base'
 
-export default Login;
+const Login = () => {
+  const authenticate = (provider) => {
+    auth.signInWithPopup(provider)
+  }
+
+  return (
+    <div className="Login">
+      <main>        
+        <button
+          className="google"
+          onClick={() => authenticate(googleProvider)}
+        >
+        Sign in with Google
+        </button>
+        <button
+          className="facebook"
+          onClick={() => authenticate(githubAuthProvider)}
+        >
+        Sign in with Github
+        </button>
+      </main>
+    </div>
+  )
+}
+export default Login

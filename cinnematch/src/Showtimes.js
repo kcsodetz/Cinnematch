@@ -5,7 +5,7 @@ class Showtimes extends React.Component{
     return(
       <div>
         <header>
-          <h1 className="App-title">Showtimes</h1>
+          <h1 className="Center">Showtimes</h1>
         </header>
       </div>   
     );

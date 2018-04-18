@@ -5,7 +5,7 @@ class Discussion extends React.Component{
     return(
       <div>
         <header>
-          <h1 className="App-title">Discussion</h1>
+          <h1 className="Center">Discussion</h1>
         </header>
       </div>   
     );

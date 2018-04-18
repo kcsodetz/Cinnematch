@@ -15,7 +15,7 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-      <div className="Home">
+      <div className="Center">
         <header className="App-header">
           <h1 className="App-title">Cinnematch</h1>
         </header>

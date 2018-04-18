@@ -5,7 +5,7 @@ class Profile extends React.Component{
     return(
       <div>
         <header>
-          <h1 className="App-title">Profile</h1>
+          <h1 className="Center">Profile</h1>
         </header>
       </div>   
     );

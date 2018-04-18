@@ -5,7 +5,7 @@ class Movies extends React.Component{
     return(
       <div>
         <header>
-          <h1 className="App-title">Rate Movies</h1>
+          <h1 className="Center">Rate Movies</h1>
         </header>
       </div>   
     );

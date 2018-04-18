@@ -15,10 +15,10 @@ class Home extends Component {
         <header className="App-header">
           <h1 className="App-title">Cinnematch</h1>
         </header>
-        <li>
+        <li className="App-sidebar">
           <Link to="/about">About</Link>
         </li>
-        <li>
+        <li className="App-sidebar">
           <Link to="/login">Login</Link>
         </li>
       </div>

@@ -5,7 +5,7 @@ class About extends React.Component{
     return(
       <div>
         <header>
-          <h1 className="App-title">Cinnematch</h1>
+          <h1 className="App-title">About</h1>
         </header>
       </div>   
     );

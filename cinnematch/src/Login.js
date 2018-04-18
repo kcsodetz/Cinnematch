@@ -11,19 +11,19 @@ const Login = () => {
   }
 
   return (
-    <div className="Login">
+    <div className="Center">
       <main>        
         <button
           className="google"
           onClick={() => authenticate(googleProvider)}
         >
-        <img src={googlebutton} alt="logo" />
+        <img src={googlebutton} style={{height:50}} alt="logo" />
         </button>
         <button
           className="facebook"
           onClick={() => authenticate(githubAuthProvider)}
         >
-        <img src={githubbutton} alt="logo" />
+        <img src={githubbutton} style={{height:50}} alt="logo" />
         </button>
       </main>
     </div>

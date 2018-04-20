@@ -9,13 +9,14 @@
 .App-sidebar{
     height: 15px;
     text-align: left;
+    padding :5px;
 }
   
 .App-header {
     background-color: rgb(247, 191, 8);
     text-align: left;
     height: 50px;
-    padding: 1px;
+    padding: 10px;
     color: white;
 }
   

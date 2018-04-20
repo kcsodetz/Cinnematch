@@ -1,4 +1,6 @@
 import React from 'react'
+import googlebutton from './login with google.png'
+import githubbutton from './login with github.png'
 
 import './Login.css'
 import { auth, googleProvider, githubAuthProvider } from './base'
@@ -9,19 +11,19 @@ const Login = () => {
   }
 
   return (
-    <div className="Login">
+    <div className="Center">
       <main>        
         <button
           className="google"
           onClick={() => authenticate(googleProvider)}
         >
-        Sign in with Google
+        <img src={googlebutton} style={{height:50}} alt="logo" />
         </button>
         <button
           className="facebook"
           onClick={() => authenticate(githubAuthProvider)}
         >
-        Sign in with Github
+        <img src={githubbutton} style={{height:50}} alt="logo" />
         </button>
       </main>
     </div>

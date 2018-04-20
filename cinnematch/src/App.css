@@ -1,0 +1,28 @@
+.Center {
+    text-align: center;
+}
+  
+.App-profile{
+    text-align: right;
+}
+  
+.App-sidebar{
+    height: 15px;
+    text-align: left;
+}
+  
+.App-header {
+    background-color: rgb(247, 191, 8);
+    text-align: left;
+    height: 50px;
+    padding: 1px;
+    color: white;
+}
+  
+.App-title {
+    font-size: 1.5em;
+}
+  
+.App-intro {
+    font-size: large;
+}

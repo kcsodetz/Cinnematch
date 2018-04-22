@@ -8,7 +8,7 @@ import Movies from './Movies';
 import Profile from './Profile'
 import Showtimes from './Showtimes';
 import Discussion from './Discussion'
-import Logout from './SignOut'
+import SignOut from './SignOut'
 import base, { auth } from './base'
 import { Switch, Route, NavLink, Redirect } from 'react-router-dom'
 import './App.css';
@@ -85,7 +85,7 @@ class App extends Component {
           <Link to="/login">Login</Link>
         </li>
         <li className="App-sidebar">
-          <Link to="/logout">Sign Out</Link>
+          <Link to="/signout">Sign Out</Link>
         </li>
         <li className="App-sidebar">
           <Link to="/movies">Rate Movies</Link>
@@ -131,12 +131,12 @@ class App extends Component {
                 />
               : <Redirect to="/login" />
           )} />
-           <Route path="/logout" render={() => (
-            !this.signedIn()
-              ? <Logout
+           <Route path="/signout" render={() => (
+            this.signedIn()
+              ? <SignOut
                   firebaseNotesSynced={this.state.firebaseSynced}
                 />
-              : <Redirect to="/logout" />
+              : <Redirect to="/signout" />
           )} />
           <Route render={() => <p>To get started, click one of the links above</p>} />
         </Switch>

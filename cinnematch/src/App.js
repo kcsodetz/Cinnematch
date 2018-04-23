@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import logo from './logo.svg';
+import logo from './cmlogo.png';
 import Login from './Login';
 import About from './About'
 import Main from './Main'
@@ -9,6 +9,8 @@ import Profile from './Profile'
 import Showtimes from './Showtimes';
 import Discussion from './Discussion'
 import SignOut from './SignOut'
+import Test from './Test'
+import HeaderBar from 'header-bar'
 import base, { auth } from './base'
 import { Switch, Route, NavLink, Redirect } from 'react-router-dom'
 import './App.css';
@@ -75,8 +77,29 @@ class App extends Component {
     return (
       <div className="App">
       <div className="Center">
-        <header className="App-header">
-          <h1 className="App-title">Cinnematch</h1>
+        <header className="Left">
+          <HeaderBar>
+            <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a>
+            <a href='/home' data-nav={true} data-color='goldenrod'>Cinnematch</a>
+            <div data-submenu_button={true} data-submenu_key='profile'>
+                <img src='/img/facebook.svg' style={{height: '1.8em', borderRadius: '0.9em'}}/>
+                <span title='profile'>Cyrus</span>
+            </div>
+            <div data-submenu_button={true} data-submenu_key='settings'><span title='settings'>Settings</span></div>
+            <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='header'>
+                <div style={{color: 'rgb(24, 155, 202)'}}>My Profile</div>
+            </div>
+            <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='body'>
+                <a href='/profile' title='User Info'>User Info</a>
+            </div>
+            <div data-submenu_item={true}  data-submenu_key='settings' data-submenu_position='body'>
+                <a href='/change-password' title='User Info'>Change Password</a>
+            </div>
+            <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='footer'>
+                <a href='/signout' title='Logout'>Logout</a>
+            </div>
+        </HeaderBar>
+      
         </header>
         <li className="App-sidebar">
           <Link to="/about">About</Link>
@@ -85,13 +108,7 @@ class App extends Component {
           <Link to="/login">Login</Link>
         </li>
         <li className="App-sidebar">
-          <Link to="/signout">Sign Out</Link>
-        </li>
-        <li className="App-sidebar">
           <Link to="/movies">Rate Movies</Link>
-        </li>
-        <li className="App-sidebar">
-          <Link to="/profile">Profile</Link>
         </li>
         <li className="App-sidebar">
           <Link to="/showtimes">Showtimes</Link>

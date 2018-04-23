@@ -1,6 +1,11 @@
 .Center {
     text-align: center;
 }
+
+.Left {
+    text-align: left;
+    padding: 20px;
+}
   
 .App-profile{
     text-align: right;

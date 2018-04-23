@@ -1,4 +1,6 @@
 import React from 'react'
+import HeaderBar from 'header-bar'
+import './App.css';
 
 class Profile extends React.Component{
   render() {

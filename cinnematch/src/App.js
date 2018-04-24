@@ -83,7 +83,7 @@ class App extends Component {
             <a href='/home' data-nav={true} data-color='goldenrod'>Cinnematch</a>
             <div data-submenu_button={true} data-submenu_key='profile'>
                 <img src='/img/facebook.svg' style={{height: '1.8em', borderRadius: '0.9em'}}/>
-                <span title='profile'>Cyrus</span>
+                <span title='profile'>Profile</span>
             </div>
             <div data-submenu_button={true} data-submenu_key='settings'><span title='settings'>Settings</span></div>
             <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='header'>
@@ -96,7 +96,7 @@ class App extends Component {
                 <a href='/change-password' title='User Info'>Change Password</a>
             </div>
             <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='footer'>
-                <a href='/signout' title='Logout'>Logout</a>
+                <a href='/signout' title='Logout' onClick={this.signOut}>Logout</a>
             </div>
         </HeaderBar>
       
@@ -148,10 +148,10 @@ class App extends Component {
                 />
               : <Redirect to="/login" />
           )} />
-           <Route path="/signout" render={() => (
+           <Route path="/o" render={() => (
             this.signedIn()
               ? <SignOut
-                  firebaseNotesSynced={this.state.firebaseSynced}
+                  signout={this.signOut}
                 />
               : <Redirect to="/signout" />
           )} />

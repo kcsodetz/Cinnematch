@@ -18,8 +18,12 @@ class Movies extends React.Component{
   }
 
   populatePage(){
-    console.log(this.state.json.results[0])
-    
+    const obj = this.state.json.results[0]
+    const title = obj.title
+    var poster_path = 'https://image.tmdb.org/t/p/w500/'
+    poster_path += obj.poster_path
+    const overview = obj.overview
+    const relese_date = obj.relese_date
   }
 
   handleChange(event) {
@@ -34,7 +38,8 @@ class Movies extends React.Component{
     url += props
     fetch(url)
       .then(response => response.json())
-      .then(json => this.setState({ json })).then((populate) => this.populatePage())
+      .then(json => this.setState({ json }))
+      .then((populate) => this.populatePage())
   }
 
   render() {
@@ -43,7 +48,7 @@ class Movies extends React.Component{
         <header>
           <h1 className="Center">Rate Movies</h1>
         </header>
-        <form id="movie-form" ref={this.form} onSubmit={this.handleChange}>
+        <form id="movie-form" onSubmit={this.handleChange}>
           <div className="input-group">
             <label htmlFor="movieName">
                 <input
@@ -66,7 +71,6 @@ class Movies extends React.Component{
             <ul id="movie-list" ref={this.list}>
             </ul>
           </div>
-          <Dropdown options={options} onChange={this._onSelect} name="year" value={defaultOption} placeholder="Select an rating">  </Dropdown>
 
         </div>
       </div>   

@@ -35,6 +35,9 @@ class Movies extends React.Component{
 
   fetchData(props) {
     var url = `https://api.themoviedb.org/3/search/movie?api_key=d75d2433d1369590a08680adda987f45&query=`;
+    if (props.length == 0) {
+      return;
+    }
     url += props
     fetch(url)
       .then(response => response.json())

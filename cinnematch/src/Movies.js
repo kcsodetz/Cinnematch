@@ -18,12 +18,24 @@ class Movies extends React.Component{
   }
 
   populatePage(){
-    const obj = this.state.json.results[0]
-    const title = obj.title
-    var poster_path = 'https://image.tmdb.org/t/p/w500/'
-    poster_path += obj.poster_path
-    const overview = obj.overview
-    const relese_date = obj.relese_date
+    const obj = this.state.json.results[0];
+    // const title = obj.title;
+    // var poster_path = 'https://image.tmdb.org/t/p/w500/';
+    // poster_path += obj.poster_path;
+    // const overview = obj.overview;
+    // const relese_date = obj.relese_date;
+    var movie = {
+      title: '',
+      poster_path: '',
+      overview: '',
+      relese_date: ''
+    };
+    movie['title'] = obj.title;
+    movie['poster_path'] = 'https://image.tmdb.org/t/p/w500/';
+    movie['poster_path'] += obj.poster_path;
+    movie['overview'] = obj.overview;
+    movie['release_date'] = obj.relese_date;
+    window.alert(movie['title']);
   }
 
   handleChange(event) {
@@ -35,6 +47,8 @@ class Movies extends React.Component{
 
   fetchData(props) {
     var url = `https://api.themoviedb.org/3/search/movie?api_key=d75d2433d1369590a08680adda987f45&query=`;
+
+    // check if props is empty
     if (props.length == 0) {
       return;
     }

@@ -14,9 +14,9 @@ export function getMovieInfo(title) {
     var json;
     request.get(url, (error, response, body) => {
         json = JSON.parse(body);
-        console.log(
-            json.results[0]
-        );
+        // console.log(
+        //     json.results[0]
+        // );
 
         //window.alert(json.results[0].title);
        if (json.total_results == 0) {

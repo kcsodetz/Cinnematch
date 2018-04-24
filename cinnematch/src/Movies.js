@@ -17,18 +17,16 @@ class Movies extends React.Component{
     this.handleChange = this.handleChange.bind(this);
   }
 
+  populatePage(){
+    console.log(this.state.json.results[0])
+    
+  }
+
   handleChange(event) {
     event.preventDefault()
     console.log(event.target.movieName.value)
     const movieName = event.target.movieName.value
     this.fetchData(movieName)
-    
-    // this.setState({
-    //     movie: event.target.movieName.value,
-    //     json: getMovieInfo(movieName),
-    // })
-    
-    console.log(getMovieInfo(movieName))
   }
 
   fetchData(props) {
@@ -36,7 +34,7 @@ class Movies extends React.Component{
     url += props
     fetch(url)
       .then(response => response.json())
-      .then(json => this.setState({ json }))
+      .then(json => this.setState({ json })).then((populate) => this.populatePage())
   }
 
   render() {

@@ -36,6 +36,7 @@ class Profile extends Component{
       context: this,
       state: 'movies',
     });
+    this.populatePage()
   }
 
   removeItem(newItem) {
@@ -60,8 +61,7 @@ class Profile extends Component{
     });
   }
 
-  loadProfile(ev) {
-    ev.preventDefault()
+  loadProfile() {
     base.fetch('users', {
     }).then(data => {
       this.setState({profile: this.props.uid,movies: data[this.props.uid]})
@@ -91,7 +91,6 @@ class Profile extends Component{
           <h1 className="Center">Profile</h1>
         </header>
         <div className="Center">
-          <button onClick={this.loadProfile}>Load Profile</button>
           <h1 className="myMovies"> My Movies </h1>
           <div>
           <form id="movie-form" onSubmit={this.removeMovie}>

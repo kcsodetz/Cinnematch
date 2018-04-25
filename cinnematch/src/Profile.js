@@ -18,6 +18,7 @@ class Profile extends Component{
       profile: '',
       firebaseObject: {},
       movies: {},
+      listItems: []
     }
     this.loadProfile = this.loadProfile.bind(this)
     this.removeMovie = this.removeMovie.bind(this)
@@ -30,28 +31,36 @@ class Profile extends Component{
     )
   }
 
-  componentDidMount(){
+  componentDidMount() {
     base.syncState(`users/${this.props.uid}`, {
       context: this,
       state: 'movies',
     });
   }
 
-  removeItem(newItem){
+  removeItem(newItem) {
     this.setState({
       movies: this.state.movies 
     });
   }
 
-  populatePage(){
-    const movieNames = Object.keys(this.state.movies)
-    const length = movieNames.length
-    for(var i = 0; i < length; i++){
-      const currentMovie = movieNames[i]
-    }
+  populatePage() {
+    const movieNames = Object.keys(this.state.movies);
+    const length = movieNames.length;
+    // for (var i = 0; i < length; i++) {
+    //   const currentMovie = movieNames[i]
+    // }
+    
+    const listItems = movieNames.map((movieNames) => 
+      <li key={movieNames}>{movieNames}</li>
+    ); 
+
+    this.setState({
+      listItems   
+    });
   }
 
-  loadProfile(ev){
+  loadProfile(ev) {
     ev.preventDefault()
     base.fetch('users', {
     }).then(data => {
@@ -62,7 +71,7 @@ class Profile extends Component{
     })
   }
 
-  removeMovie(ev){
+  removeMovie(ev) {
     ev.preventDefault()
     const userId = this.props.uid
     const movie = ev.target.movieRemove.value
@@ -75,14 +84,12 @@ class Profile extends Component{
     });
   }
 
-  render(){
+  render() {
     return (
-      <div>
-        <header className="w3-container w3-goldenrod">
+      <div className="Center">
+        <header>
           <h1 className="Center">Profile</h1>
-        </header>
-        <div className="Center">
-        <button onClick={this.loadProfile}>Load Profile</button>
+          <button onClick={this.loadProfile}>Load Profile</button>
           <h1 className="myMovies"> My Movies </h1>
           <div>
           <form id="movie-form" onSubmit={this.removeMovie}>
@@ -106,10 +113,10 @@ class Profile extends Component{
           </div>
           <div>
             <ul>
-
+              {this.state.listItems}
             </ul>
           </div>
-          </div>
+        </header>
       </div>  
     )
   }

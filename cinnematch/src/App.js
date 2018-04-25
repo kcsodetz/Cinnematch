@@ -86,19 +86,6 @@ class App extends Component {
           <HeaderBar>
             <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a>
             <a href='/home' data-nav={true} data-color='goldenrod'>Cinnematch</a>
-<<<<<<< HEAD
-
-=======
-            <div data-submenu_button={true} data-submenu_key='profile'>
-              {this.state.uid != null ?
-                <img src={this.state.profilepic} style={{height: '1.8em', borderRadius: '0.9em'}}/> :
-                null
-                }                
-              {this.state.uid != null ? 
-                <span title='profile'>{this.state.username.substr(0,this.state.username.indexOf("@"))}</span> :
-                <span title='profile'>Login</span> 
-              }
->>>>>>> 79f0f7ac735bd5359570deafed86707e49bf36a5
 
             
 
@@ -130,9 +117,6 @@ class App extends Component {
         </header>
         <li className="App-sidebar">
           <Link to="/about">About</Link>
-        </li>
-        <li className="App-sidebar">
-          <Link to="/login">Login</Link>
         </li>
         <li className="App-sidebar">
           <Link to="/movies">Rate Movies</Link>

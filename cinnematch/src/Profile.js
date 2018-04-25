@@ -14,13 +14,13 @@ class Profile extends Component{
     }
     this.loadProfile = this.loadProfile.bind(this)
     this.addMovie = this.addMovie.bind(this)
+    this.removeMovie = this.removeMovie.bind(this)
 
   }
 
   syncNotes = () => {
     this.ref = base.syncState(
       `profile`,
-      
     )
   }
 
@@ -39,6 +39,12 @@ class Profile extends Component{
     });
   }
 
+  removeItem(newItem){
+    this.setState({
+      movies: this.state.movies //updates Firebase and the local state
+    });
+  }
+
   loadProfile(ev){
     base.fetch('users', {
     }).then(data => {
@@ -47,6 +53,19 @@ class Profile extends Component{
     }).catch(error => {
       //handle error
     })
+  }
+
+  removeMovie(ev){
+    ev.preventDefault()
+    const userId = this.props.uid
+    const movie = ev.target.movieRemove.value
+    const temp = this.state.movies.indexOf(movie)
+    this.state.movies[temp] = null
+    base.remove(`${userId}/${movie}`).then(() => {
+      this.removeItem(movie)
+    }).catch(error => {
+      //handle error
+    });
   }
 
   addMovie(ev){
@@ -72,6 +91,7 @@ class Profile extends Component{
           <h1 className="Center">Profile</h1>
           <button onClick={this.loadProfile}>Load Profile</button>
           <h1 className="myMovies"> My Movies </h1>
+          <div>
           <form id="movie-form" onSubmit={this.addMovie}>
             <div className="input-group">
               <label htmlFor="movieName">
@@ -88,8 +108,29 @@ class Profile extends Component{
                   
             </div>
             <br></br>
-            <input type="submit" value="Submit" onSubmit={this.addMovie} />
+            <input type="submit" value="Add Movie" onSubmit={this.addMovie} />
           </form>
+          </div>
+          <div>
+          <form id="movie-form" onSubmit={this.removeMovie}>
+            <div className="input-group">
+              <label htmlFor="movieName">
+                  <input
+                    type="text"
+                    ref='movie-name-ref'
+                    className="input-group field"
+                    name="movieRemove"
+                    placeholder="Enter the name of movie to remove"
+                    required
+                    autoFocus
+                  />
+                  </label>
+                  
+            </div>
+            <br></br>
+            <input type="submit" value="Delete" onSubmit={this.removeMovie} />
+          </form>
+          </div>
         </header>
       </div>  
     )

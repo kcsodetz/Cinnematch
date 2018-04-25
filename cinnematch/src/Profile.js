@@ -10,17 +10,17 @@ class Profile extends Component{
     super(props)
     this.state = {
       profile: '',
-      movies: []
+      firebaseObject: {},
+      movies: {}
     }
     this.loadProfile = this.loadProfile.bind(this)
     this.addMovie = this.addMovie.bind(this)
-
+    this.removeMovie = this.removeMovie.bind(this)
   }
 
   syncNotes = () => {
     this.ref = base.syncState(
       `profile`,
-      
     )
   }
 
@@ -28,32 +28,65 @@ class Profile extends Component{
     base.syncState(`users/${this.props.uid}`, {
       context: this,
       state: 'movies',
-      asArray: true
+     // asArray: true
     });
   }
+
   addItem(newItem){
-    console.log(newItem)
+    console.log("ADD ITEM")
     console.log(this.state.movies)
     this.setState({
-      movies: this.state.movies //updates Firebase and the local state
+      movies: this.state.movies
     });
+  }
+
+  removeItem(newItem){
+    this.setState({
+      movies: this.state.movies 
+    });
+  }
+
+  populatePage(){
+
   }
 
   loadProfile(ev){
     base.fetch('users', {
     }).then(data => {
       console.log(data[this.props.uid]);
-      this.setState({profile: this.props.uid,movies: data[this.props.uid]})
+      this.setState({profile: this.props.uid,movies: data[this.props.uid]}).then((populate) => this.populatePage())
     }).catch(error => {
       //handle error
     })
+  }
+
+  removeMovie(ev){
+    ev.preventDefault()
+    const userId = this.props.uid
+    const movie = ev.target.movieRemove.value
+    const temp = this.state.movies[movie]
+    this.state.movies[temp] = null
+    base.remove(`users/${userId}/${movie}`).then(() => {
+      this.removeItem(movie)
+    }).catch(error => {
+      //handle error
+    });
   }
 
   addMovie(ev){
     ev.preventDefault()
     const userId = this.props.uid
     const movie = ev.target.movieName.value
-    const temp = this.state.movies.push(movie)
+    //const temp = this.state.movies.push(movie)
+    const dummu = {
+          title: "",
+          posterPath: "",
+          overview: "",
+          release_date: "",
+    }
+    this.state.movies[movie] = dummu
+    console.log("ADD MOVIE")
+    console.log(this.state.movies)
     base.post(`users/${userId}`, {
       data: this.state.movies
     }).then(() => {
@@ -72,6 +105,7 @@ class Profile extends Component{
           <h1 className="Center">Profile</h1>
           <button onClick={this.loadProfile}>Load Profile</button>
           <h1 className="myMovies"> My Movies </h1>
+          <div>
           <form id="movie-form" onSubmit={this.addMovie}>
             <div className="input-group">
               <label htmlFor="movieName">
@@ -88,8 +122,29 @@ class Profile extends Component{
                   
             </div>
             <br></br>
-            <input type="submit" value="Submit" onSubmit={this.addMovie} />
+            <input type="submit" value="Add Movie" onSubmit={this.addMovie} />
           </form>
+          </div>
+          <div>
+          <form id="movie-form" onSubmit={this.removeMovie}>
+            <div className="input-group">
+              <label htmlFor="movieName">
+                  <input
+                    type="text"
+                    ref='movie-name-ref'
+                    className="input-group field"
+                    name="movieRemove"
+                    placeholder="Enter the name of movie to remove"
+                    required
+                    autoFocus
+                  />
+                  </label>
+                  
+            </div>
+            <br></br>
+            <input type="submit" value="Delete" onSubmit={this.removeMovie} />
+          </form>
+          </div>
         </header>
       </div>  
     )

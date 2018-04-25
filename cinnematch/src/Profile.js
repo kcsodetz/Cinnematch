@@ -48,6 +48,7 @@ class Profile extends Component{
   populatePage() {
     const movieNames = Object.keys(this.state.movies);
     const length = movieNames.length;
+    window.alert(length);
     // for (var i = 0; i < length; i++) {
     //   const currentMovie = movieNames[i]
     // }

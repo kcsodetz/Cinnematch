@@ -187,7 +187,11 @@ class App extends Component {
                 <div><header className="w3-container w3-goldenrod">
                   <h1 className="Center">Home</h1>
                 </header>
-                  <p className="Center">Login to get started!</p></div>} />
+                {this.state.uid != null ? 
+                  <p className="Center">Welcome {this.state.username.substr(0, this.state.username.indexOf("@"))}! </p> :
+                  <p className="Center">Login to get started!</p>
+                }
+                  </div>} />
             </Switch>
           </div>
         </body>

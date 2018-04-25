@@ -89,7 +89,10 @@ class App extends Component {
             <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a>
             <a href='/home' data-nav={true} data-color='goldenrod'>Cinnematch</a>
             <div data-submenu_button={true} data-submenu_key='profile'>
-                <img src={this.state.profilepic} style={{height: '1.8em', borderRadius: '0.9em'}}/>
+                {this.state.uid != null ?
+                  <img src={this.state.profilepic} style={{height: '1.8em', borderRadius: '0.9em'}}/> :
+                  null
+                }                
 
                  {this.state.uid != null ? 
                   <span title='profile'>{this.state.username.substr(0,this.state.username.indexOf("@"))}</span> :

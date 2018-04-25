@@ -127,6 +127,9 @@ class App extends Component {
         <li className="App-sidebar">
           <Link to="/discussion">Discussion</Link>
         </li>
+        <li className="App-sidebar">
+          <Link to="/test">Test</Link>
+        </li>
       </div>
        <Switch>
           <Route path='/about' component={About} />
@@ -163,6 +166,13 @@ class App extends Component {
            <Route path="/discussion" render={() => (
             this.signedIn()
               ? <Discussion
+                  firebaseNotesSynced={this.state.firebaseSynced}
+                />
+              : <Redirect to="/login" />
+          )} />
+          <Route path="/test" render={() => (
+            this.signedIn()
+              ? <Test
                   firebaseNotesSynced={this.state.firebaseSynced}
                 />
               : <Redirect to="/login" />

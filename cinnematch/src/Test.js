@@ -1,40 +1,117 @@
-import React from 'react';
-import HeaderBar from 'header-bar';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+import logo from './cmlogo.png';
+import Login from './Login';
+import About from './About'
+import Main from './Main'
+import Movies from './Movies';
+import Profile from './Profile'
+import Showtimes from './Showtimes';
+import Discussion from './Discussion'
+import SignOut from './SignOut'
+import Test from './Test'
+import HeaderBar from 'header-bar'
+import base, { auth } from './base'
+import { Switch, Route, NavLink, Redirect } from 'react-router-dom'
+import './App.css';
+import { SIGPIPE } from 'constants';
  
 class Test extends React.Component {
     render(){ 
         return(
-        <div>
-        <HeaderBar
-          hamburger={{ src:'/img/hamburger.svg', title:'Menu' }}
-        >
-            <a href='//localhost' data-logo={true}><img src='/img/logo.svg' title='logo'/></a>
-            <a href='//nav.link.href' data-nav={true} data-color='rgb(64, 124, 156)' data-match='nav.link.href'>nav-link-1</a>
-            <a href='//localhost' data-nav={true} data-color='goldenrod' data-match='local(.*)'>nav-link-2</a>
-            <a href='//facebook.com' data-subnav={true} data-color='rgb(62, 86, 155)'><img src='/img/facebook.svg'/></a>
-            <a href='//sub.nav.link' data-subnav={true} data-color='rgb(229, 26, 0)'>sub-nav-link</a>
-            <div data-submenu_button={true} data-submenu_key='login'>
-                <img src='/img/facebook.svg' style={{height: '1.8em', borderRadius: '0.9em'}}/>
-                <span title='login'>設定</span>
+            <html>
+            
+            <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+            <body>
+
+            <div class="w3-sidebar w3-bar-block w3-light-grey">
+            <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/movies">Rate Movies</Link>
+        </li>
+        <li>
+          <Link to="/showtimes">Showtimes</Link>
+        </li>
+        <li>
+          <Link to="/discussion">Discussion</Link>
+        </li>
+        <li>
+          <Link to="/test">Test</Link>
+        </li>
             </div>
-            <div data-submenu_button={true} data-submenu_key='logpeople'><span title='logpeople'>紀錄</span></div>
-            <div data-submenu_item={true}  data-submenu_key='login' data-submenu_position='header'>
-                <div style={{color: 'rgb(24, 155, 202)'}}>VIP會員</div>
+
+            <div>
+
+            <div class="w3-container w3-dark-grey">
+            <h1>My Page</h1>
             </div>
-            <div data-submenu_item={true}  data-submenu_key='login' data-submenu_position='body'>
-                <a href='/user-info' title='User Info'>修改個人資訊</a>
+
+            <div class="w3-container">
+            <p>When you mouse over the links inside the side navigation, the background color will change to grey by default.</p>
+            <p>If you want a different background color on hover, use any of the w3-hover-color classes.</p>
             </div>
-            <div data-submenu_item={true}  data-submenu_key='login' data-submenu_position='body'>
-                <a href='/change-password' title='User Info'>更改密碼</a>
+
             </div>
-            <div data-submenu_item={true}  data-submenu_key='login' data-submenu_position='footer'>
-                <a href='/logout' title='Logout'>登出</a>
-            </div>
-            <div data-submenu_item={true} data-submenu_key='logpeople'>
-                <a href='/pay-history' title='Pay History'>購買紀錄</a>
-            </div>
-        </HeaderBar>
-        </div>
+            <Switch>
+          <Route path='/about' component={About} />
+          <Route path='/login' component={Login} />
+          <Route path="/profile" render={() => (
+            this.signedIn()
+              ? <Profile
+                  firebaseNotesSynced={this.state.firebaseSynced}
+                  {...actions}
+                />
+              : <Redirect to="/login" />
+          )} />
+          <Route path="/movies" render={() => (
+            this.signedIn()
+              ? <Movies
+                  firebaseNotesSynced={this.state.firebaseSynced}
+                />
+              : <Redirect to="/login" />
+          )} />
+          <Route path="/profile" render={() => (
+            this.signedIn()
+              ? <Profile
+                  firebaseNotesSynced={this.state.firebaseSynced}
+                />
+              : <Redirect to="/login" />
+          )} />
+           <Route path="/showtimes" render={() => (
+            this.signedIn()
+              ? <Showtimes
+                  firebaseNotesSynced={this.state.firebaseSynced}
+                />
+              : <Redirect to="/login" />
+          )} />
+           <Route path="/discussion" render={() => (
+            this.signedIn()
+              ? <Discussion
+                  firebaseNotesSynced={this.state.firebaseSynced}
+                />
+              : <Redirect to="/login" />
+          )} />
+          <Route path="/test" render={() => (
+            this.signedIn()
+              ? <Test
+                  firebaseNotesSynced={this.state.firebaseSynced}
+                />
+              : <Redirect to="/login" />
+          )} />
+           <Route path="/o" render={() => (
+            this.signedIn()
+              ? <SignOut
+                  signout={this.signOut}
+                />
+              : <Redirect to="/signout" />
+          )} />
+          <Route render={() => <p>To get started, click one of the links above</p>} />
+        </Switch>
+            </body>
+            </html>
         );
     }
 }

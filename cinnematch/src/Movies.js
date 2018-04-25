@@ -3,6 +3,8 @@ import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import {getMovieInfo} from './api-request'
 import MovieDisplay from './MovieDisplay';
+import firebase from 'firebase/database'
+import base from './base'
 import './Movies.css'
 const options = [
   '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
@@ -14,6 +16,7 @@ class Movies extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
+      movies: {},
       json: {},
       showComponenet: false,
       movie_query: '',
@@ -25,6 +28,7 @@ class Movies extends React.Component{
       }
     }
     this.handleChange = this.handleChange.bind(this);
+    this.addMovie = this.addMovie.bind(this)
   }
 
   populatePage(){
@@ -49,11 +53,38 @@ class Movies extends React.Component{
     });
   }
 
+  addItem(newItem){
+    console.log(this.state.movies)
+    this.setState({
+      movies: this.state.movies
+    });
+  }
+
+  addMovie(name){
+    const userId = this.props.uid
+    const movie = name
+    const dummu = {
+          title: "",
+          posterPath: "",
+          overview: "",
+          release_date: "",
+    }
+    this.state.movies[movie] = this.state.movie
+    base.post(`users/${userId}`, {
+      data: this.state.movies
+    }).then(() => {
+      this.addItem(movie)
+    }).catch(err => {
+      // handle error
+    });
+  }
+
   handleChange(event) {
     event.preventDefault()
     console.log(event.target.movieName.value)
     const movieName = event.target.movieName.value
     this.fetchData(movieName)
+    this.addMovie(movieName)
   }
 
   fetchData(props) {

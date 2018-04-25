@@ -28,12 +28,10 @@ class Profile extends Component{
     base.syncState(`users/${this.props.uid}`, {
       context: this,
       state: 'movies',
-     // asArray: true
     });
   }
 
   addItem(newItem){
-    console.log("ADD ITEM")
     console.log(this.state.movies)
     this.setState({
       movies: this.state.movies
@@ -53,7 +51,6 @@ class Profile extends Component{
   loadProfile(ev){
     base.fetch('users', {
     }).then(data => {
-      console.log(data[this.props.uid]);
       this.setState({profile: this.props.uid,movies: data[this.props.uid]}).then((populate) => this.populatePage())
     }).catch(error => {
       //handle error
@@ -77,7 +74,6 @@ class Profile extends Component{
     ev.preventDefault()
     const userId = this.props.uid
     const movie = ev.target.movieName.value
-    //const temp = this.state.movies.push(movie)
     const dummu = {
           title: "",
           posterPath: "",
@@ -85,8 +81,6 @@ class Profile extends Component{
           release_date: "",
     }
     this.state.movies[movie] = dummu
-    console.log("ADD MOVIE")
-    console.log(this.state.movies)
     base.post(`users/${userId}`, {
       data: this.state.movies
     }).then(() => {
@@ -94,7 +88,6 @@ class Profile extends Component{
     }).catch(err => {
       // handle error
     });
-      //this.setState({profile: 'Connor', movies: {"inception": "inception"}})
   }
 
 

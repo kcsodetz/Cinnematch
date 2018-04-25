@@ -146,6 +146,7 @@ class App extends Component {
             this.signedIn()
               ? <Movies
                   firebaseNotesSynced={this.state.firebaseSynced}
+                  {...actions}
                 />
               : <Redirect to="/login" />
           )} />

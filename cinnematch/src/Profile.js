@@ -28,7 +28,7 @@ class Profile extends Component{
   }
 
   componentDidMount(){
-    base.syncState(`${this.props.uid}`, {
+    base.syncState(`users/${this.props.uid}`, {
       context: this,
       state: 'movies',
       asArray: true
@@ -42,12 +42,10 @@ class Profile extends Component{
   }
 
   loadProfile(ev){
-    base.fetch(this.props.uid, {
-      context: this,
-      asArray: true
+    base.fetch('users', {
     }).then(data => {
       console.log(data);
-      this.setState({profile: this.props.uid,movies: data[1]})
+      this.setState({profile: this.props.uid,movies: this.state.movies.concat(data[1])})
     }).catch(error => {
       //handle error
     })

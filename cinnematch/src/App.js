@@ -202,7 +202,11 @@ class App extends Component {
                 />
               : <Redirect to="/signout" />
           )} />
-          <Route render={() => <p>To get started, click one of the links above</p>} />
+          <Route render={() => 
+          <div><header className="w3-container w3-goldenrod">
+          <h1 className="Center">Home</h1>
+        </header>
+          <p className="Center">To get started, click one of the links above</p></div>} />
         </Switch>
       </div>
       </body>

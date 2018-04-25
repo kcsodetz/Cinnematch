@@ -12,6 +12,9 @@ const Login = () => {
 
   return (
     <div className="Center">
+    <header className="w3-container w3-goldenrod">
+          <h1 className="Center">Login</h1>
+        </header>
       <main>        
         <button
           className="google"
@@ -26,6 +29,7 @@ const Login = () => {
         <img src={githubbutton} style={{height:50}} alt="logo" />
         </button>
       </main>
+      <p className="Center">Please login to view site content!</p>
     </div>
   )
 }

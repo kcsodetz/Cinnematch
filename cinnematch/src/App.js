@@ -86,30 +86,10 @@ class App extends Component {
     return (
       <html>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-<<<<<<< HEAD
-            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
-            <body>
-      <div className="App">
-      <div>
-        <header className="Left">
-          <HeaderBar>
-            {/* <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a> */}
-            <a href='/home' data-nav={true} data-color='rgb(218, 165, 32)'>Cinnematch</a>
-
-            
-
-            {this.state.uid != null ?
-              <div data-submenu_button={true} data-submenu_key='profile'>
-                <img src={this.state.profilepic} style={{height: '1.8em', borderRadius: '0.9em'}}/>
-                <span title='profile'>{this.state.username.substr(0,this.state.username.indexOf("@"))}</span>
-              </div>:
-              <div data-button={true}>
-                <span title='profile'><Link to="/login">Login</Link></span> 
-=======
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
         <body>
           <div className="App">
-            <div className="Center">
+            <div >
               <header className="Left">
                 <HeaderBar>
                   {/* <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a> */}
@@ -154,76 +134,8 @@ class App extends Component {
               <div>
                 <div class="w3-container">
                 </div>
->>>>>>> 34729ef09b438f5a3feb03fc234a3dd9e6df3589
               </div>
             </div>
-<<<<<<< HEAD
-            <div>
-
-
-
-
-
-</div>
-        
-      
-      </div>
-       <Switch>
-          <Route path='/about' component={About} />
-          <Route path='/login' component={Login} />
-          <Route path="/profile" render={() => (
-            this.signedIn()
-              ? <Profile
-                  firebaseNotesSynced={this.state.firebaseSynced}
-                  {...actions}
-                />
-              : <Redirect to="/login" />
-          )} />
-          <Route path="/movies" render={() => (
-            this.signedIn()
-              ? <Movies
-                  firebaseNotesSynced={this.state.firebaseSynced}
-                  {...actions}
-                />
-              : <Redirect to="/login" />
-          )} />
-          <Route path="/profile" render={() => (
-            this.signedIn()
-              ? <Profile
-                  firebaseNotesSynced={this.state.firebaseSynced}
-                />
-              : <Redirect to="/login" />
-          )} />
-           <Route path="/showtimes" render={() => (
-            this.signedIn()
-              ? <Showtimes
-                  firebaseNotesSynced={this.state.firebaseSynced}
-                />
-              : <Redirect to="/login" />
-          )} />
-           <Route path="/discussion" render={() => (
-            this.signedIn()
-              ? <Discussion
-                  firebaseNotesSynced={this.state.firebaseSynced}
-                />
-              : <Redirect to="/login" />
-          )} />
-           <Route path="/o" render={() => (
-            this.signedIn()
-              ? <SignOut
-                  signout={this.signOut}
-                />
-              : <Redirect to="/signout" />
-          )} />
-          <Route render={() => 
-          <div><header className="w3-container w3-goldenrod">
-          <h1 className="Center">Home</h1>
-        </header>
-          <p className="Center">To get started, click one of the links above</p></div>} />
-        </Switch>
-      </div>
-      </body>
-=======
             <Switch>
               <Route path='/about' component={About} />
               <Route path='/login' component={Login} />
@@ -279,7 +191,6 @@ class App extends Component {
             </Switch>
           </div>
         </body>
->>>>>>> 34729ef09b438f5a3feb03fc234a3dd9e6df3589
       </html>
     );
   }

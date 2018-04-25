@@ -2,7 +2,7 @@ import React from 'react'
 import googlebutton from './login with google.png'
 import githubbutton from './login with github.png'
 
-import './Login.css'
+import './App.css'
 import { auth, googleProvider, githubAuthProvider } from './base'
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
     <header className="w3-container w3-goldenrod">
           <h1 className="Center">Login</h1>
         </header>
-      <main className="Center">        
+      <main className="Centerofpage">        
         <button
           className="google"
           onClick={() => authenticate(googleProvider)}
@@ -29,7 +29,7 @@ const Login = () => {
         <img src={githubbutton} style={{height:50}} alt="logo" />
         </button>
       </main>
-      <p className="Center">Please login to view site content!</p>
+      <p className="Centerofpage">Please login to view site content!</p>
     </div>
   )
 }

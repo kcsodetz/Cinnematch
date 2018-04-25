@@ -84,7 +84,7 @@ class App extends Component {
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
             <body>
       <div className="App">
-      <div className="Center">
+      <div>
         <header className="Left">
           <HeaderBar>
             {/* <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a> */}
@@ -140,8 +140,7 @@ class App extends Component {
 
 
 
-<div class="w3-container">
-</div>
+
 
 </div>
         

@@ -96,12 +96,13 @@ class Movies extends React.Component{
 
   render() {
     return(
-      <div className="Center">
-        <div>
-        <header className="w3-container w3-goldenrod">
-          <h1 className="Center">Rate Movies</h1>
-        </header>
-      </div> 
+      <div>
+        <div className="CenterNoMargin">
+          <header className="w3-container w3-goldenrod">
+            <h1 className="Center">Rate Movies</h1>
+         </header>
+        </div> 
+        <div className="Center">
         <form id="movie-form" onSubmit={this.handleChange}>
           <div className="input-group">
             <label htmlFor="movieName">
@@ -129,8 +130,8 @@ class Movies extends React.Component{
             <ul id="movie-list" ref={this.list}>
             </ul>
           </div>
-
-        </div>
+         </div>
+         </div>
       </div>   
     );
   }

@@ -1,6 +1,12 @@
 .Center {
     text-align: center;
+    margin: 0px 200px 0px 300px;
 }
+
+.CenterNoMargin {
+    text-align: center;
+}
+
 
 .Left {
     text-align: left;
@@ -16,7 +22,10 @@
     text-align: left;
     padding :5px;
 }
-  
+ 
+headerbar{
+    position:fixed!important;z-index:1;overflow:auto
+}
 .App-header {
     background-color: rgb(247, 222, 0);
     text-align: left;

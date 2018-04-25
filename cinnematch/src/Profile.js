@@ -71,10 +71,12 @@ class Profile extends Component{
 
   render(){
     return (
-      <div className="Center">
-        <header>
+      <div>
+        <header className="w3-container w3-goldenrod">
           <h1 className="Center">Profile</h1>
-          <button onClick={this.loadProfile}>Load Profile</button>
+        </header>
+        <div className="Center">
+        <button onClick={this.loadProfile}>Load Profile</button>
           <h1 className="myMovies"> My Movies </h1>
           <div>
           <form id="movie-form" onSubmit={this.removeMovie}>
@@ -101,7 +103,7 @@ class Profile extends Component{
 
             </ul>
           </div>
-        </header>
+          </div>
       </div>  
     )
   }

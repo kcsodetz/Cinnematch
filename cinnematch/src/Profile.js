@@ -71,7 +71,7 @@ class Profile extends Component{
 
   render(){
     return (
-      <div>
+      <div className="Center">
         <header>
           <h1 className="Center">Profile</h1>
           <button onClick={this.loadProfile}>Load Profile</button>

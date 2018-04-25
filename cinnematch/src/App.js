@@ -19,8 +19,7 @@ import { SIGPIPE } from 'constants';
 class App extends Component {
 
   constructor(){
-    super()
-    
+    super();
     this.state = {
       profile: {},
       uid: null,
@@ -28,7 +27,6 @@ class App extends Component {
       username: '',
       profilepic: '',
     }
-
   }
 
   componentWillMount() {
@@ -47,7 +45,7 @@ class App extends Component {
   }
 
   signOut = () => {
-    auth.signOut()
+    auth.signOut();
   }
 
   unauthHandler = () => {
@@ -58,7 +56,7 @@ class App extends Component {
   }
 
   authHandler = (user) => {
-    localStorage.setItem('uid', user.uid)
+    localStorage.setItem('uid', user.uid);
     this.setState(
       { uid: user.uid, username: user.email, profilepic: user.photoURL},
       this.syncNotes
@@ -88,7 +86,19 @@ class App extends Component {
           <HeaderBar>
             <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a>
             <a href='/home' data-nav={true} data-color='goldenrod'>Cinnematch</a>
+<<<<<<< HEAD
 
+=======
+            <div data-submenu_button={true} data-submenu_key='profile'>
+              {this.state.uid != null ?
+                <img src={this.state.profilepic} style={{height: '1.8em', borderRadius: '0.9em'}}/> :
+                null
+                }                
+              {this.state.uid != null ? 
+                <span title='profile'>{this.state.username.substr(0,this.state.username.indexOf("@"))}</span> :
+                <span title='profile'>Login</span> 
+              }
+>>>>>>> 79f0f7ac735bd5359570deafed86707e49bf36a5
 
             
 

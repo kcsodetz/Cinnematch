@@ -56,7 +56,7 @@ class Profile extends Component{
     const userId = this.props.uid
     const movie = ev.target.movieName.value
     base.post(`users/${userId}`, {
-      data: {movie: "Inception"}
+      data: {movie: this.state.movies.concat(movie)}
     }).then(() => {
       this.addItem(movie)
     }).catch(err => {

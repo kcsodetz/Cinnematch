@@ -9,7 +9,6 @@ import Profile from './Profile'
 import Showtimes from './Showtimes';
 import Discussion from './Discussion'
 import SignOut from './SignOut'
-import Test from './Test'
 import HeaderBar from 'header-bar'
 import base, { auth } from './base'
 import { Switch, Route, NavLink, Redirect } from 'react-router-dom'
@@ -188,13 +187,6 @@ class App extends Component {
                 />
               : <Redirect to="/login" />
           )} />
-          {/* <Route path="/test" render={() => (
-            this.signedIn()
-              ? <Test
-                  firebaseNotesSynced={this.state.firebaseSynced}
-                />
-              : <Redirect to="/login" />
-          )} /> */}
            <Route path="/o" render={() => (
             this.signedIn()
               ? <SignOut

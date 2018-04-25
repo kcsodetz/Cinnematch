@@ -11,8 +11,16 @@ const options = [
 ]
 
 const defaultOption = options[0]
-class Movies extends React.Component{
 
+/**
+ * Class allowing the user to rate and add a movie to their profile
+ */
+class Movies extends React.Component{
+  /**
+   * Default constructor  
+   * @constructor
+   * @param {object} props 
+   */
   constructor(props) {
     super(props)
     this.state = {
@@ -26,6 +34,9 @@ class Movies extends React.Component{
     this.addMovie = this.addMovie.bind(this)
   }
 
+  /**
+   * Populate the page with movie results 
+   */
   populatePage(){
     if (this.state.json.total_results == 0) {
       window.alert("Your search for \"" + this.state.movie_query + "\" turned up no results")
@@ -46,6 +57,10 @@ class Movies extends React.Component{
     });
   }
 
+  /**
+   * Helper to add the new movie object to the database
+   * @param {Object} newItem 
+   */
   addItem(newItem){
     console.log(this.state.movies)
     this.setState({
@@ -53,6 +68,10 @@ class Movies extends React.Component{
     });
   }
 
+  /**
+   * Helper to add a new movie object 
+   * @param {string} name 
+   */
   addMovie(name){
     const userId = this.props.uid
     const movie = name
@@ -66,6 +85,10 @@ class Movies extends React.Component{
     });
   }
 
+  /**
+   * Handle changed state 
+   * @param {Object} event 
+   */
   handleChange(event) {
     event.preventDefault()
     console.log(event.target.movieName.value)
@@ -73,6 +96,10 @@ class Movies extends React.Component{
     this.fetchData(movieName)
   }
 
+  /**
+   * Handle API request 
+   * @param {Object} props 
+   */
   fetchData(props) {
     var url = `https://api.themoviedb.org/3/search/movie?api_key=d75d2433d1369590a08680adda987f45&query=`;
 
@@ -94,6 +121,9 @@ class Movies extends React.Component{
       .then((add) => this.addMovie(props))
   }
 
+  /**
+   * Render function 
+   */
   render() {
     return(
       <div className="Center">

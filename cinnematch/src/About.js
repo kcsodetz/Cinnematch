@@ -1,6 +1,11 @@
 import React from 'react'
-
+/**
+ * Class for About component 
+ */
 class About extends React.Component{
+  /**
+   * Render function
+   */
   render() {
     return(
       <div>

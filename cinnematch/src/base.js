@@ -3,6 +3,9 @@ import firebase from 'firebase/app'
 import database from 'firebase/database'
 import 'firebase/auth'
 
+/**
+ * Firebase integration 
+ */
 const app = firebase.initializeApp({
     apiKey: "AIzaSyAH88mM00rcTUQQVx7Viw0ZzRpNqg5BGdE",
     authDomain: "cinnematch-7a4a1.firebaseapp.com",
@@ -12,10 +15,9 @@ const app = firebase.initializeApp({
     messagingSenderId: "609915360106"
 })
 
-
+// github auth
 export const githubAuthProvider = new firebase.auth.GithubAuthProvider();
-
+// google auth
 export const googleProvider = new firebase.auth.GoogleAuthProvider()
 export const auth = app.auth()
-
 export default Rebase.createClass(app.database())

@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-
 import './Profile.css'
 import firebase from 'firebase/database'
 import base from './base'
 
+/**
+ * Class for Profile component
+ */
 class Profile extends Component{
-
+/**
+ * Default constructor  
+ * @constructor
+ * @param {Object} props 
+ */
   constructor(props) {
     super(props)
     this.state = {

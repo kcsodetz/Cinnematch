@@ -2,6 +2,8 @@ import React from 'react'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import {getMovieInfo} from './api-request'
+import MovieDisplay from './MovieDisplay';
+import './Movies.css'
 const options = [
   '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
 ]
@@ -13,29 +15,39 @@ class Movies extends React.Component{
     super(props)
     this.state = {
       json: {},
+      showComponenet: false,
+      movie: {
+       title: '',
+       poster_path: '',
+       overview: '',
+       relese_date: ''
+      }
     }
     this.handleChange = this.handleChange.bind(this);
   }
 
   populatePage(){
     const obj = this.state.json.results[0];
-    // const title = obj.title;
-    // var poster_path = 'https://image.tmdb.org/t/p/w500/';
-    // poster_path += obj.poster_path;
-    // const overview = obj.overview;
-    // const relese_date = obj.relese_date;
-    var movie = {
-      title: '',
-      poster_path: '',
-      overview: '',
-      relese_date: ''
-    };
+    // initialize movie object
+    // var movie = {
+    //   title: '',
+    //   poster_path: '',
+    //   overview: '',
+    //   relese_date: ''
+    // };
+    let movie = {...this.state.movie};
+    // set values in movie object
     movie['title'] = obj.title;
     movie['poster_path'] = 'https://image.tmdb.org/t/p/w500/';
     movie['poster_path'] += obj.poster_path;
     movie['overview'] = obj.overview;
-    movie['release_date'] = obj.relese_date;
-    window.alert(movie['title']);
+    movie['release_date'] = obj.release_date;
+    this.setState({
+      movie
+    });
+    this.setState({
+      showComponenet: true
+    });
   }
 
   handleChange(event) {
@@ -82,6 +94,10 @@ class Movies extends React.Component{
           </div>
           <br></br>
           <input type="submit" value="Submit" onSubmit={this.handleChange} />
+          {this.state.showComponenet ? 
+            <MovieDisplay props={this.state.movie}/> :
+              null
+          }
         </form>
         <div className="row">
           <div className="medium-8 medium-offset-2 column">

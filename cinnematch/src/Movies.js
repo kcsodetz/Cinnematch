@@ -20,12 +20,7 @@ class Movies extends React.Component{
       json: {},
       showComponenet: false,
       movie_query: '',
-      movie: {
-       title: '',
-       poster_path: '',
-       overview: '',
-       relese_date: ''
-      }
+      movie: {}
     }
     this.handleChange = this.handleChange.bind(this);
     this.addMovie = this.addMovie.bind(this)
@@ -84,7 +79,6 @@ class Movies extends React.Component{
     console.log(event.target.movieName.value)
     const movieName = event.target.movieName.value
     this.fetchData(movieName)
-    this.addMovie(movieName)
   }
 
   fetchData(props) {
@@ -105,6 +99,7 @@ class Movies extends React.Component{
       .then(response => response.json())
       .then(json => this.setState({ json }))
       .then((populate) => this.populatePage())
+      .then((add) => this.addMovie(props))
   }
 
   render() {

@@ -41,9 +41,7 @@ class Movies extends React.Component{
     movie['overview'] = obj.overview;
     movie['release_date'] = obj.release_date;
     this.setState({
-      movie
-    });
-    this.setState({
+      movie,
       showComponenet: true
     });
   }
@@ -58,12 +56,6 @@ class Movies extends React.Component{
   addMovie(name){
     const userId = this.props.uid
     const movie = name
-    const dummu = {
-          title: "",
-          posterPath: "",
-          overview: "",
-          release_date: "",
-    }
     this.state.movies[movie] = this.state.movie
     base.post(`users/${userId}`, {
       data: this.state.movies
@@ -124,7 +116,7 @@ class Movies extends React.Component{
                 
           </div>
           <br></br>
-          <input type="submit" value="Submit" onSubmit={this.handleChange} />
+          <input type="submit" value="Add Movie" onSubmit={this.handleChange} />
           {this.state.showComponenet ? 
             <MovieDisplay props={this.state.movie}/> :
               null

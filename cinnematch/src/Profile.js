@@ -11,11 +11,11 @@ class Profile extends Component{
     this.state = {
       profile: '',
       firebaseObject: {},
-      movies: {}
+      movies: {},
     }
     this.loadProfile = this.loadProfile.bind(this)
-    this.addMovie = this.addMovie.bind(this)
     this.removeMovie = this.removeMovie.bind(this)
+    this.populatePage = this.populatePage.bind(this)
   }
 
   syncNotes = () => {
@@ -31,13 +31,6 @@ class Profile extends Component{
     });
   }
 
-  addItem(newItem){
-    console.log(this.state.movies)
-    this.setState({
-      movies: this.state.movies
-    });
-  }
-
   removeItem(newItem){
     this.setState({
       movies: this.state.movies 
@@ -45,13 +38,19 @@ class Profile extends Component{
   }
 
   populatePage(){
-
+    const movieNames = Object.keys(this.state.movies)
+    const length = movieNames.length
+    for(var i = 0; i < length; i++){
+      const currentMovie = movieNames[i]
+    }
   }
 
   loadProfile(ev){
+    ev.preventDefault()
     base.fetch('users', {
     }).then(data => {
-      this.setState({profile: this.props.uid,movies: data[this.props.uid]}).then((populate) => this.populatePage())
+      this.setState({profile: this.props.uid,movies: data[this.props.uid]})
+      this.populatePage()
     }).catch(error => {
       //handle error
     })
@@ -70,27 +69,6 @@ class Profile extends Component{
     });
   }
 
-  addMovie(ev){
-    ev.preventDefault()
-    const userId = this.props.uid
-    const movie = ev.target.movieName.value
-    const dummu = {
-          title: "",
-          posterPath: "",
-          overview: "",
-          release_date: "",
-    }
-    this.state.movies[movie] = dummu
-    base.post(`users/${userId}`, {
-      data: this.state.movies
-    }).then(() => {
-      this.addItem(movie)
-    }).catch(err => {
-      // handle error
-    });
-  }
-
-
   render(){
     return (
       <div>
@@ -98,26 +76,6 @@ class Profile extends Component{
           <h1 className="Center">Profile</h1>
           <button onClick={this.loadProfile}>Load Profile</button>
           <h1 className="myMovies"> My Movies </h1>
-          <div>
-          <form id="movie-form" onSubmit={this.addMovie}>
-            <div className="input-group">
-              <label htmlFor="movieName">
-                  <input
-                    type="text"
-                    ref='movie-name-ref'
-                    className="input-group field"
-                    name="movieName"
-                    placeholder="Enter the name of your movie"
-                    required
-                    autoFocus
-                  />
-                  </label>
-                  
-            </div>
-            <br></br>
-            <input type="submit" value="Add Movie" onSubmit={this.addMovie} />
-          </form>
-          </div>
           <div>
           <form id="movie-form" onSubmit={this.removeMovie}>
             <div className="input-group">
@@ -137,6 +95,11 @@ class Profile extends Component{
             <br></br>
             <input type="submit" value="Delete" onSubmit={this.removeMovie} />
           </form>
+          </div>
+          <div>
+            <ul>
+
+            </ul>
           </div>
         </header>
       </div>  

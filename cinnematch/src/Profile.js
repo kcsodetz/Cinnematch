@@ -46,20 +46,24 @@ class Profile extends Component{
   }
 
   populatePage() {
-    const movieNames = Object.keys(this.state.movies);
-    const length = movieNames.length;
-    window.alert(length);
+    // const movieNames = Object.keys(this.state.movies);
+    // const length = movieNames.length;
+    // window.alert(length);
     // for (var i = 0; i < length; i++) {
     //   const currentMovie = movieNames[i]
     // }
-    
-    const listItems = movieNames.map((movieNames) => 
-      <li key={movieNames}>{movieNames}</li>
-    ); 
 
-    this.setState({
-      listItems   
+    Object.keys(this.state.movies).forEach(function(key) {
+      console.log(key, this.state.movies[key]);
     });
+    
+    // const listItems = movieNames.map((movieNames) => 
+    //   <li key={movieNames}>{movieNames}</li>
+    // ); 
+
+    // this.setState({
+    //   listItems   
+    // });
   }
 
   loadProfile() {

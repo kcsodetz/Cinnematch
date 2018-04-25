@@ -19,7 +19,7 @@ export function getMovieInfo(title) {
         // );
 
         //window.alert(json.results[0].title);
-       if (json.total_results == 0) {
+        if (json.total_results === 0) {
             window.alert("Sorry, your search for " + title + " turned up no results")
             return 0;
        }

@@ -20,10 +20,7 @@ class Profile extends Component{
   syncNotes = () => {
     this.ref = base.syncState(
       `profile`,
-      {
-        context: this,
-        state: 'profile'
-       }
+      
     )
   }
 
@@ -36,16 +33,17 @@ class Profile extends Component{
   }
   addItem(newItem){
     console.log(newItem)
+    console.log(this.state.movies)
     this.setState({
-      movies: this.state.movies.concat([newItem]) //updates Firebase and the local state
+      movies: this.state.movies //updates Firebase and the local state
     });
   }
 
   loadProfile(ev){
     base.fetch('users', {
     }).then(data => {
-      console.log(data);
-      this.setState({profile: this.props.uid,movies: this.state.movies.concat(data[1])})
+      console.log(data[this.props.uid]);
+      this.setState({profile: this.props.uid,movies: data[this.props.uid]})
     }).catch(error => {
       //handle error
     })
@@ -55,14 +53,15 @@ class Profile extends Component{
     ev.preventDefault()
     const userId = this.props.uid
     const movie = ev.target.movieName.value
+    const temp = this.state.movies.push(movie)
     base.post(`users/${userId}`, {
-      data: {movie: this.state.movies.concat(movie)}
+      data: this.state.movies
     }).then(() => {
       this.addItem(movie)
     }).catch(err => {
       // handle error
     });
-    //this.setState({profile: 'Connor', movies: {"inception": "inception"}})
+      //this.setState({profile: 'Connor', movies: {"inception": "inception"}})
   }
 
 

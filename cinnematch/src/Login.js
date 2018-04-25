@@ -11,11 +11,11 @@ const Login = () => {
   }
 
   return (
-    <div className="Center">
+    <div>
     <header className="w3-container w3-goldenrod">
           <h1 className="Center">Login</h1>
         </header>
-      <main>        
+      <main className="Center">        
         <button
           className="google"
           onClick={() => authenticate(googleProvider)}

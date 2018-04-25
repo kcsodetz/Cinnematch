@@ -88,18 +88,20 @@ class App extends Component {
           <HeaderBar>
             <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a>
             <a href='/home' data-nav={true} data-color='goldenrod'>Cinnematch</a>
-            <div data-submenu_button={true} data-submenu_key='profile'>
-                {this.state.uid != null ?
-                  <img src={this.state.profilepic} style={{height: '1.8em', borderRadius: '0.9em'}}/> :
-                  null
-                }                
 
-                 {this.state.uid != null ? 
-                  <span title='profile'>{this.state.username.substr(0,this.state.username.indexOf("@"))}</span> :
-                  <span title='profile'>Login</span> 
-                 }
 
-            </div>
+            
+
+            {this.state.uid != null ?
+              <div data-submenu_button={true} data-submenu_key='profile'>
+                <img src={this.state.profilepic} style={{height: '1.8em', borderRadius: '0.9em'}}/>
+                <span title='profile'>{this.state.username.substr(0,this.state.username.indexOf("@"))}</span>
+              </div>:
+              <div data-button={true}>
+                <span title='profile'><Link to="/login">Login</Link></span> 
+              </div>
+            }
+            
             <div data-submenu_button={true} data-submenu_key='settings'><span title='settings'>Settings</span></div>
             <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='header'>
                 <div style={{color: 'rgb(24, 155, 202)'}}>My Profile</div>
@@ -108,7 +110,7 @@ class App extends Component {
                 <a href='/profile' title='User Info'>User Info</a>
             </div>
             <div data-submenu_item={true}  data-submenu_key='settings' data-submenu_position='body'>
-                <a href='/change-password' title='User Info'>Change Password</a>
+                <a href='/change-password' title='User Info'>Change Username</a>
             </div>
             <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='footer'>
                 <a href='/signout' title='Logout' onClick={this.signOut}>Logout</a>

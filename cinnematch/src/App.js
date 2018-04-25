@@ -25,6 +25,8 @@ class App extends Component {
       profile: {},
       uid: null,
       firebaseSynced: false,
+      username: '',
+      profilepic: '',
     }
 
   }
@@ -58,7 +60,7 @@ class App extends Component {
   authHandler = (user) => {
     localStorage.setItem('uid', user.uid)
     this.setState(
-      { uid: user.uid },
+      { uid: user.uid, username: user.email, profilepic: user.photoURL},
       this.syncNotes
     )
   }
@@ -87,8 +89,8 @@ class App extends Component {
             <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a>
             <a href='/home' data-nav={true} data-color='goldenrod'>Cinnematch</a>
             <div data-submenu_button={true} data-submenu_key='profile'>
-                <img src='/img/facebook.svg' style={{height: '1.8em', borderRadius: '0.9em'}}/>
-                <span title='profile'>Profile</span>
+                <img src={this.state.profilepic} style={{height: '1.8em', borderRadius: '0.9em'}}/>
+                <span title='profile'>{this.state.username.substr(0,this.state.username.indexOf("@"))}</span>
             </div>
             <div data-submenu_button={true} data-submenu_key='settings'><span title='settings'>Settings</span></div>
             <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='header'>

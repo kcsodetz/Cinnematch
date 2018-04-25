@@ -89,7 +89,7 @@ class App extends Component {
         <header className="Left">
           <HeaderBar>
             {/* <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a> */}
-            <a href='/home' data-nav={true} data-color='rgb(247, 222, 0)'>Cinnematch</a>
+            <a href='/home' data-nav={true} data-color='rgb(218, 165, 32)'>Cinnematch</a>
 
             
 
@@ -105,7 +105,7 @@ class App extends Component {
             
             <div data-submenu_button={true} data-submenu_key='settings'><span title='settings'>Settings</span></div>
             <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='header'>
-                <div style={{color: 'rgb(247, 222, 0)'}}>My Profile</div>
+                <div style={{color: 'rgb(218, 165, 32)'}}>My Profile</div>
             </div>
             <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='body'>
                 <a href='/profile' title='User Info'>User Info</a>
@@ -125,23 +125,21 @@ class App extends Component {
 
         <div class="w3-sidebar w3-bar-block w3-light-grey">
       
-          <Link to="/about"><a href="#" class="w3-bar-item w3-button w3-hover-yellow">About</a></Link>
+          <Link to="/about"><a href="#" class="w3-bar-item w3-button w3-hover-goldenrod">About</a></Link>
  
         
-          <Link to="/movies"><a href="#" class="w3-bar-item w3-button w3-hover-yellow">Rate Movies</a></Link>
+          <Link to="/movies"><a href="#" class="w3-bar-item w3-button w3-hover-goldenrod">Rate Movies</a></Link>
       
         
-          <Link to="/showtimes"><a href="#" class="w3-bar-item w3-button w3-hover-yellow">Showtimes</a></Link>
+          <Link to="/showtimes"><a href="#" class="w3-bar-item w3-button w3-hover-goldenrod">Showtimes</a></Link>
        
        
-          <Link to="/discussion"><a href="#" class="w3-bar-item w3-button w3-hover-yellow">Discussion</a></Link>
+          <Link to="/discussion"><a href="#" class="w3-bar-item w3-button w3-hover-goldenrod">Discussion</a></Link>
      
             </div>
             <div>
 
-<div class="w3-container w3-yellow">
-<h1>Cinnematch</h1>
-</div>
+
 
 <div class="w3-container">
 </div>

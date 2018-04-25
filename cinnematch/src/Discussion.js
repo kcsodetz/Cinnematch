@@ -4,7 +4,7 @@ class Discussion extends React.Component{
   render() {
     return(
       <div>
-        <header>
+        <header className="w3-container w3-goldenrod">
           <h1 className="Center">Discussion</h1>
         </header>
       </div>   

@@ -97,9 +97,11 @@ class Movies extends React.Component{
   render() {
     return(
       <div className="Center">
-        <header>
+        <div>
+        <header className="w3-container w3-goldenrod">
           <h1 className="Center">Rate Movies</h1>
         </header>
+      </div> 
         <form id="movie-form" onSubmit={this.handleChange}>
           <div className="input-group">
             <label htmlFor="movieName">

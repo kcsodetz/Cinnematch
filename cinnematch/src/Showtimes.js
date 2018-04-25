@@ -4,7 +4,7 @@ class Showtimes extends React.Component{
   render() {
     return(
       <div>
-        <header>
+        <header className="w3-container w3-goldenrod">
           <h1 className="Center">Showtimes</h1>
         </header>
       </div>   

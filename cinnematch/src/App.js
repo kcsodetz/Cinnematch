@@ -74,6 +74,11 @@ class App extends Component {
   }
 
   render() {
+
+    const actions = {
+      uid: this.state.uid,
+    }
+
     return (
       <div className="App">
       <div className="Center">
@@ -120,6 +125,14 @@ class App extends Component {
        <Switch>
           <Route path='/about' component={About} />
           <Route path='/login' component={Login} />
+          <Route path="/profile" render={() => (
+            this.signedIn()
+              ? <Profile
+                  firebaseNotesSynced={this.state.firebaseSynced}
+                  {...actions}
+                />
+              : <Redirect to="/login" />
+          )} />
           <Route path="/movies" render={() => (
             this.signedIn()
               ? <Movies

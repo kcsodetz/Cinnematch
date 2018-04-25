@@ -24,6 +24,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "firebase": "^4.13.1",
     "header-bar": "^2.4.3"
   }
 }

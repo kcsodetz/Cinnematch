@@ -19,8 +19,7 @@ import { SIGPIPE } from 'constants';
 class App extends Component {
 
   constructor(){
-    super()
-    
+    super();
     this.state = {
       profile: {},
       uid: null,
@@ -28,7 +27,6 @@ class App extends Component {
       username: '',
       profilepic: '',
     }
-
   }
 
   componentWillMount() {
@@ -47,7 +45,7 @@ class App extends Component {
   }
 
   signOut = () => {
-    auth.signOut()
+    auth.signOut();
   }
 
   unauthHandler = () => {
@@ -58,7 +56,7 @@ class App extends Component {
   }
 
   authHandler = (user) => {
-    localStorage.setItem('uid', user.uid)
+    localStorage.setItem('uid', user.uid);
     this.setState(
       { uid: user.uid, username: user.email, profilepic: user.photoURL},
       this.syncNotes
@@ -88,18 +86,19 @@ class App extends Component {
           <HeaderBar>
             <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a>
             <a href='/home' data-nav={true} data-color='goldenrod'>Cinnematch</a>
-            <div data-submenu_button={true} data-submenu_key='profile'>
-                {this.state.uid != null ?
-                  <img src={this.state.profilepic} style={{height: '1.8em', borderRadius: '0.9em'}}/> :
-                  null
-                }                
 
-                 {this.state.uid != null ? 
-                  <span title='profile'>{this.state.username.substr(0,this.state.username.indexOf("@"))}</span> :
-                  <span title='profile'>Login</span> 
-                 }
+            
 
-            </div>
+            {this.state.uid != null ?
+              <div data-submenu_button={true} data-submenu_key='profile'>
+                <img src={this.state.profilepic} style={{height: '1.8em', borderRadius: '0.9em'}}/>
+                <span title='profile'>{this.state.username.substr(0,this.state.username.indexOf("@"))}</span>
+              </div>:
+              <div data-button={true}>
+                <span title='profile'><Link to="/login">Login</Link></span> 
+              </div>
+            }
+            
             <div data-submenu_button={true} data-submenu_key='settings'><span title='settings'>Settings</span></div>
             <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='header'>
                 <div style={{color: 'rgb(24, 155, 202)'}}>My Profile</div>
@@ -108,7 +107,7 @@ class App extends Component {
                 <a href='/profile' title='User Info'>User Info</a>
             </div>
             <div data-submenu_item={true}  data-submenu_key='settings' data-submenu_position='body'>
-                <a href='/change-password' title='User Info'>Change Password</a>
+                <a href='/change-password' title='User Info'>Change Username</a>
             </div>
             <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='footer'>
                 <a href='/signout' title='Logout' onClick={this.signOut}>Logout</a>
@@ -118,9 +117,6 @@ class App extends Component {
         </header>
         <li className="App-sidebar">
           <Link to="/about">About</Link>
-        </li>
-        <li className="App-sidebar">
-          <Link to="/login">Login</Link>
         </li>
         <li className="App-sidebar">
           <Link to="/movies">Rate Movies</Link>

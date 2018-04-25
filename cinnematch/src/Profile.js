@@ -6,16 +6,33 @@ import base from './base'
 
 class Profile extends Component{
 
+  
+
   constructor(props) {
     super(props)
     this.state = {
       profile: '',
-      movies: []
+      firebaseObject: {},
+      movies: {}
     }
     this.loadProfile = this.loadProfile.bind(this)
     this.addMovie = this.addMovie.bind(this)
     this.removeMovie = this.removeMovie.bind(this)
 
+    var testObject = {
+      'Inception':{
+          title: "",
+          posterPath: "",
+          overview: "",
+          release_date: "",
+      },
+      'Interstellar': {
+          title: "",
+          posterPath: "",
+          overview: "",
+          release_date: "",
+      }
+    }
   }
 
   syncNotes = () => {
@@ -28,28 +45,33 @@ class Profile extends Component{
     base.syncState(`users/${this.props.uid}`, {
       context: this,
       state: 'movies',
-      asArray: true
+     // asArray: true
     });
   }
+
   addItem(newItem){
-    console.log(newItem)
+    console.log("ADD ITEM")
     console.log(this.state.movies)
     this.setState({
-      movies: this.state.movies //updates Firebase and the local state
+      movies: this.state.movies
     });
   }
 
   removeItem(newItem){
     this.setState({
-      movies: this.state.movies //updates Firebase and the local state
+      movies: this.state.movies 
     });
+  }
+
+  populatePage(){
+
   }
 
   loadProfile(ev){
     base.fetch('users', {
     }).then(data => {
       console.log(data[this.props.uid]);
-      this.setState({profile: this.props.uid,movies: data[this.props.uid]})
+      this.setState({profile: this.props.uid,movies: data[this.props.uid]}).then((populate) => this.populatePage())
     }).catch(error => {
       //handle error
     })
@@ -72,7 +94,16 @@ class Profile extends Component{
     ev.preventDefault()
     const userId = this.props.uid
     const movie = ev.target.movieName.value
-    const temp = this.state.movies.push(movie)
+    //const temp = this.state.movies.push(movie)
+    const dummu = {
+          title: "",
+          posterPath: "",
+          overview: "",
+          release_date: "",
+    }
+    this.state.movies[movie] = dummu
+    console.log("ADD MOVIE")
+    console.log(this.state.movies)
     base.post(`users/${userId}`, {
       data: this.state.movies
     }).then(() => {

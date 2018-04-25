@@ -16,6 +16,7 @@ class Movies extends React.Component{
     this.state = {
       json: {},
       showComponenet: false,
+      movie_query: '',
       movie: {
        title: '',
        poster_path: '',
@@ -27,14 +28,12 @@ class Movies extends React.Component{
   }
 
   populatePage(){
+    if (this.state.json.total_results == 0) {
+      window.alert("Your search for \"" + this.state.movie_query + "\" turned up no results")
+      return;
+    }
     const obj = this.state.json.results[0];
     // initialize movie object
-    // var movie = {
-    //   title: '',
-    //   poster_path: '',
-    //   overview: '',
-    //   relese_date: ''
-    // };
     let movie = {...this.state.movie};
     // set values in movie object
     movie['title'] = obj.title;
@@ -64,7 +63,13 @@ class Movies extends React.Component{
     if (props.length == 0) {
       return;
     }
+
+    this.setState({
+      movie_query: props
+    });
+
     url += props
+
     fetch(url)
       .then(response => response.json())
       .then(json => this.setState({ json }))

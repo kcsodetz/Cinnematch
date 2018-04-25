@@ -90,7 +90,7 @@ class App extends Component {
         <body>
           <div className="App">
             <div >
-              <header className="Left">
+              <header className="Left" >
                 <HeaderBar>
                   {/* <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a> */}
                   <a href='/home' data-nav={true} data-color='rgb(218, 165, 32)'>Cinnematch</a>

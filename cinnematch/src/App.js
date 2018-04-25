@@ -80,12 +80,16 @@ class App extends Component {
     }
 
     return (
+      <html>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+            <body>
       <div className="App">
       <div className="Center">
         <header className="Left">
           <HeaderBar>
-            <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a>
-            <a href='/home' data-nav={true} data-color='goldenrod'>Cinnematch</a>
+            {/* <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a> */}
+            <a href='/home' data-nav={true} data-color='rgb(247, 222, 0)'>Cinnematch</a>
 
             
 
@@ -101,7 +105,7 @@ class App extends Component {
             
             <div data-submenu_button={true} data-submenu_key='settings'><span title='settings'>Settings</span></div>
             <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='header'>
-                <div style={{color: 'rgb(24, 155, 202)'}}>My Profile</div>
+                <div style={{color: 'rgb(247, 222, 0)'}}>My Profile</div>
             </div>
             <div data-submenu_item={true}  data-submenu_key='profile' data-submenu_position='body'>
                 <a href='/profile' title='User Info'>User Info</a>
@@ -115,21 +119,36 @@ class App extends Component {
         </HeaderBar>
       
         </header>
-        <li className="App-sidebar">
-          <Link to="/about">About</Link>
-        </li>
-        <li className="App-sidebar">
-          <Link to="/movies">Rate Movies</Link>
-        </li>
-        <li className="App-sidebar">
-          <Link to="/showtimes">Showtimes</Link>
-        </li>
-        <li className="App-sidebar">
-          <Link to="/discussion">Discussion</Link>
-        </li>
-        <li className="App-sidebar">
-          <Link to="/test">Test</Link>
-        </li>
+
+
+
+
+        <div class="w3-sidebar w3-bar-block w3-light-grey">
+      
+          <Link to="/about"><a href="#" class="w3-bar-item w3-button w3-hover-yellow">About</a></Link>
+ 
+        
+          <Link to="/movies"><a href="#" class="w3-bar-item w3-button w3-hover-yellow">Rate Movies</a></Link>
+      
+        
+          <Link to="/showtimes"><a href="#" class="w3-bar-item w3-button w3-hover-yellow">Showtimes</a></Link>
+       
+       
+          <Link to="/discussion"><a href="#" class="w3-bar-item w3-button w3-hover-yellow">Discussion</a></Link>
+     
+            </div>
+            <div>
+
+<div class="w3-container w3-yellow">
+<h1>Cinnematch</h1>
+</div>
+
+<div class="w3-container">
+</div>
+
+</div>
+        
+      
       </div>
        <Switch>
           <Route path='/about' component={About} />
@@ -171,13 +190,13 @@ class App extends Component {
                 />
               : <Redirect to="/login" />
           )} />
-          <Route path="/test" render={() => (
+          {/* <Route path="/test" render={() => (
             this.signedIn()
               ? <Test
                   firebaseNotesSynced={this.state.firebaseSynced}
                 />
               : <Redirect to="/login" />
-          )} />
+          )} /> */}
            <Route path="/o" render={() => (
             this.signedIn()
               ? <SignOut
@@ -188,6 +207,8 @@ class App extends Component {
           <Route render={() => <p>To get started, click one of the links above</p>} />
         </Switch>
       </div>
+      </body>
+      </html>
     );
   }
 }

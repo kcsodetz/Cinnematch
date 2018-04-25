@@ -96,7 +96,7 @@ class Movies extends React.Component{
 
   render() {
     return(
-      <div>
+      <div className="Center">
         <header>
           <h1 className="Center">Rate Movies</h1>
         </header>

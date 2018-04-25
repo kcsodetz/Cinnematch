@@ -6,8 +6,6 @@ import base from './base'
 
 class Profile extends Component{
 
-  
-
   constructor(props) {
     super(props)
     this.state = {
@@ -18,21 +16,6 @@ class Profile extends Component{
     this.loadProfile = this.loadProfile.bind(this)
     this.addMovie = this.addMovie.bind(this)
     this.removeMovie = this.removeMovie.bind(this)
-
-    var testObject = {
-      'Inception':{
-          title: "",
-          posterPath: "",
-          overview: "",
-          release_date: "",
-      },
-      'Interstellar': {
-          title: "",
-          posterPath: "",
-          overview: "",
-          release_date: "",
-      }
-    }
   }
 
   syncNotes = () => {
@@ -81,9 +64,9 @@ class Profile extends Component{
     ev.preventDefault()
     const userId = this.props.uid
     const movie = ev.target.movieRemove.value
-    const temp = this.state.movies.indexOf(movie)
+    const temp = this.state.movies[movie]
     this.state.movies[temp] = null
-    base.remove(`${userId}/${movie}`).then(() => {
+    base.remove(`users/${userId}/${movie}`).then(() => {
       this.removeItem(movie)
     }).catch(error => {
       //handle error

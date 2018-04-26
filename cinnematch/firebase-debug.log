@@ -1,13 +1,13 @@
-[debug] [2018-04-26T07:50:39.002Z] ----------------------------------------------------------------------
-[debug] [2018-04-26T07:50:39.004Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
-[debug] [2018-04-26T07:50:39.004Z] CLI Version:   3.18.4
-[debug] [2018-04-26T07:50:39.004Z] Platform:      darwin
-[debug] [2018-04-26T07:50:39.004Z] Node Version:  v8.1.0
-[debug] [2018-04-26T07:50:39.005Z] Time:          Thu Apr 26 2018 03:50:39 GMT-0400 (EDT)
-[debug] [2018-04-26T07:50:39.005Z] ----------------------------------------------------------------------
+[debug] [2018-04-26T08:20:34.532Z] ----------------------------------------------------------------------
+[debug] [2018-04-26T08:20:34.534Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2018-04-26T08:20:34.535Z] CLI Version:   3.18.4
+[debug] [2018-04-26T08:20:34.535Z] Platform:      darwin
+[debug] [2018-04-26T08:20:34.535Z] Node Version:  v8.1.0
+[debug] [2018-04-26T08:20:34.535Z] Time:          Thu Apr 26 2018 04:20:34 GMT-0400 (EDT)
+[debug] [2018-04-26T08:20:34.535Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-04-26T07:50:39.015Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
-[debug] [2018-04-26T07:50:39.015Z] > authorizing via signed-in user
+[debug] [2018-04-26T08:20:34.543Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-04-26T08:20:34.544Z] > authorizing via signed-in user
 [info] 
      🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥     🔥🔥🔥     🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥
      🔥🔥        🔥🔥  🔥🔥     🔥🔥 🔥🔥       🔥🔥     🔥🔥  🔥🔥   🔥🔥  🔥🔥       🔥🔥
@@ -26,16 +26,7 @@ You're about to initialize a Firebase project in this directory:
 [info] You can create multiple project aliases by running firebase use --add, 
 [info] but for now we'll just set up a default project.
 [info] 
-[debug] [2018-04-26T07:50:45.118Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2018-04-26T07:50:45.118Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- { refresh_token: '1/-01PGEh8KZtqn_7MbyVeEAqkl3kqVGhIDdTo9gO1Chrl6Ums9tSJPzJQvNRJ8_y8',
-  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
-  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
-  grant_type: 'refresh_token',
-  scope: 'email https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Thu Apr 26 2018 03:50:45 GMT-0400 (EDT)
-[debug] [2018-04-26T07:50:46.086Z] <<< HTTP RESPONSE 200
-[debug] [2018-04-26T07:50:46.106Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+[debug] [2018-04-26T08:20:38.006Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
   
- Thu Apr 26 2018 03:50:46 GMT-0400 (EDT)
-[debug] [2018-04-26T07:50:46.473Z] <<< HTTP RESPONSE 200
+ Thu Apr 26 2018 04:20:38 GMT-0400 (EDT)
+[debug] [2018-04-26T08:20:38.421Z] <<< HTTP RESPONSE 200

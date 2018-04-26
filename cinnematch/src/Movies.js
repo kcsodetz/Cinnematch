@@ -184,10 +184,11 @@ class Movies extends React.Component{
                 </label>
                 
           </div>
+          
           <br></br>
           <input type="submit" value="Search Movie" onSubmit={this.handleChange} />
+          </form>
           {this.state.showComponenet ? 
-          
           <div>
             <form id="movie-rating-form" onSubmit={this.rateMovie} >
         <div className="input-group">
@@ -202,7 +203,7 @@ class Movies extends React.Component{
                 autoFocus
               />
           </label>
-          <input type="submit" value="Rate Movie" />
+          <input type="submit" value="Rate Movie " onSubmit={this.rateMovie} />
         </div>
           <br></br>
         </form> 
@@ -211,7 +212,7 @@ class Movies extends React.Component{
             <MovieDisplay props={this.state.movie}/></div> :
               null
           }
-        </form>
+        
         
         
       

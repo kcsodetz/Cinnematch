@@ -14,14 +14,6 @@ class Showtimes extends React.Component{
 
   populatePage() {
     console.log(this.state.json);
-    this.setState({
-      rendered: true
-    })
-    return(
-      <div>
-        Funct ret
-      </div>
-    );
   }
 
   /**
@@ -43,7 +35,9 @@ class Showtimes extends React.Component{
           <h1 className="Center" style={{ color: 'rgb(255, 255, 255)' }}>In Theaters</h1>
         </header>
         <div>
-          <button onClick={this.apiRequest()}>Whats in Theaters</button>
+          {/* <button onClick={this.apiRequest()}>Whats in Theaters</button> */}
+
+          <button className="Center" onClick={this.apiRequest}>Whats in Theaters</button>
         </div>
       </div>   
     );

@@ -178,6 +178,24 @@ class Movies extends React.Component{
           {this.state.showComponenet ? 
           <div>
           <button className="AddButton w3-goldenrod" onClick={this.addMovie}>Add to My Movies</button>
+          <form id="movie-rating-form" >
+          <div className="input-group">
+            <label htmlFor="movieName">
+                <input
+                  type="text"
+                  ref='movie-rating-form'
+                  className="input-group field"
+                  name="movieRating"
+                  placeholder="Rate Movie Here"
+                  required
+                  autoFocus
+                />
+                </label>
+                
+          </div>
+            <br></br>
+           
+          </form>
             <MovieDisplay props={this.state.movie}/></div> :
               null
           }

@@ -33,6 +33,7 @@ class Movies extends React.Component{
     this.handleChange = this.handleChange.bind(this);
     this.addMovie = this.addMovie.bind(this)
     this.getRealName = this.getRealName.bind(this)
+    this.rateMovie = this.rateMovie.bind(this)
   }
 
   /**
@@ -68,6 +69,16 @@ class Movies extends React.Component{
       state: 'movies',
     });
     this.loadProfile()
+  }
+
+  rateMovie(ev){
+    ev.preventDefault()
+    let movie = {...this.state.movie};
+    console.log(ev.target.movieRating.value)
+    movie['rating'] = ev.target.movieRating.value
+    this.setState({
+      movie
+    })
   }
 
   /**
@@ -154,7 +165,7 @@ class Movies extends React.Component{
       <div>
         <div className="CenterNoMargin">
           <header className="w3-container w3-goldenrod">
-            <h1 className="Center">Rate Movies</h1>
+            <h1 className="Center" style={{ color: 'rgb(255, 255, 255)' }}>Rate Movies</h1>
          </header>
         </div> 
         <div className="LeftAdjustedMargin">
@@ -176,19 +187,39 @@ class Movies extends React.Component{
           <br></br>
           <input type="submit" value="Search Movie" onSubmit={this.handleChange} />
           {this.state.showComponenet ? 
-            <MovieDisplay props={this.state.movie}/> :
+          <div>
+          <button className="AddButton w3-goldenrod" onClick={this.addMovie}>Add to My Movies</button>
+          
+            <MovieDisplay props={this.state.movie}/></div> :
               null
           }
         </form>
+        {this.state.showComponenet ?
+        <form id="movie-rating-form" onSubmit={this.rateMovie} >
+        <div className="input-group">
+          <label htmlFor="movieRating">
+              <input
+                type="text"
+                ref='movie-rating-form'
+                className="input-group field"
+                name="movieRating"
+                placeholder="Rate Movie Here"
+                required
+                autoFocus
+              />
+          </label>
+          <input type="submit" value="Rate Movie" />
+        </div>
+          <br></br>
+        </form> : null }
+      
         <div className="row">
           <div className="medium-8 medium-offset-2 column">
             <ul id="movie-list" ref={this.list}>
             </ul>
           </div>
          </div>
-         <div>
-           <button onClick={this.addMovie}>Add Movie</button>
-        </div>
+        
          </div>
       </div>   
     );

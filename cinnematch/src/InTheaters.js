@@ -40,7 +40,11 @@ class Showtimes extends React.Component{
     return(
       <div>
         <header className="w3-container w3-goldenrod">
+<<<<<<< HEAD
           <h1 className="Center">Showtimes</h1>
+=======
+          <h1 className="Center" style={{ color: 'rgb(255, 255, 255)' }}>In Theaters</h1>
+>>>>>>> 8e8ce0f78d8c88e100842a840bb988495bb97d80
         </header>
         <div>
           <button onClick={this.apiRequest()}>Whats in Theaters</button>

@@ -50,6 +50,7 @@ class Profile extends Component{
   populatePage() {
     const movieNames = Object.keys(this.state.movies);
     const length = movieNames.length;
+    console.log(movieNames)
 
     // Object.keys(this.state.movies).forEach(function(key) {
     //   console.log(key, this.state.movies[key]);
@@ -97,7 +98,7 @@ class Profile extends Component{
     return (
       <div>
         <header className="w3-container w3-goldenrod">
-          <h1 className="Center">Profile</h1>
+          <h1 className="Center" style={{ color: 'rgb(255, 255, 255)' }}>Profile</h1>
         </header>
         <div className="LeftAdjustedMargin">
           <h1 className="myMovies"> My Movies </h1>

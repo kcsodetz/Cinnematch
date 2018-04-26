@@ -17,13 +17,13 @@ const Login = () => {
         </header>
       <main className="Centerofpage">        
         <button
-          className="google"
+          className="Picture"
           onClick={() => authenticate(googleProvider)}
         >
         <img src={googlebutton} style={{height:50}} alt="logo" />
         </button>
         <button
-          className="facebook"
+          className="Picture"
           onClick={() => authenticate(githubAuthProvider)}
         >
         <img src={githubbutton} style={{height:50}} alt="logo" />

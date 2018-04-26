@@ -12,7 +12,9 @@
     text-align: center;
 }
 
-
+.Picture{
+    border: 0 
+}
 .Left {
     text-align: left;
     padding: 20px;

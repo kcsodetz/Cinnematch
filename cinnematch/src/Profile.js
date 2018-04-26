@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Profile.css'
 import firebase from 'firebase/database'
 import base from './base'
+import grayX from './delete x.png';
+
 
 /**
  * Class for Profile component
@@ -54,7 +56,9 @@ class Profile extends Component{
     // });
     
     const listItems = movieNames.map((movieNames) => 
-      <li key={movieNames}><button onClick={() => this.removeMovie(movieNames)}>x</button>{movieNames}</li>
+      <p key={movieNames}><button className="Picture" onClick={() => this.removeMovie(movieNames)}>
+      <img src={grayX} style={{height:20}}/>
+      </button>{movieNames}</p>
     ); 
 
     this.setState({
@@ -106,6 +110,8 @@ class Profile extends Component{
           </div>
           <div>
             <p>
+            Click 'x' to remove from list
+
               {this.state.listItems} 
             </p>
           </div>

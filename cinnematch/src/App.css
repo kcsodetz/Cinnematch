@@ -17,6 +17,11 @@
     text-align: left;
     padding: 20px;
 }
+
+.LeftAdjustedMargin {
+    text-align: left;
+    margin: 0px 200px 0px 300px
+}
   
 .App-profile{
     text-align: right;

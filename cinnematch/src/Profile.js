@@ -54,7 +54,7 @@ class Profile extends Component{
     // });
     
     const listItems = movieNames.map((movieNames) => 
-      <li key={movieNames}>{movieNames}</li>
+      <li key={movieNames}><button onClick={() => this.removeMovie(movieNames)}>x</button>{movieNames}</li>
     ); 
 
     this.setState({
@@ -74,9 +74,8 @@ class Profile extends Component{
   }
 
   removeMovie(ev) {
-    ev.preventDefault()
     const userId = this.props.uid
-    const movie = ev.target.movieRemove.value
+    const movie = ev
     const temp = this.state.movies[movie]
     this.state.movies[temp] = null
     base.remove(`users/${userId}/${movie}`).then(() => {
@@ -96,7 +95,7 @@ class Profile extends Component{
         <header className="w3-container w3-goldenrod">
           <h1 className="Center">Profile</h1>
         </header>
-        <div className="Center">
+        <div className="LeftAdjustedMargin">
           <h1 className="myMovies"> My Movies </h1>
           <div>
           <form id="movie-form" onSubmit={this.removeMovie}>
@@ -119,7 +118,7 @@ class Profile extends Component{
           </div>
           <div>
             <p>
-              {this.state.listItems} <input type="submit" value="x" onSubmit={this.removeMovie} />
+              {this.state.listItems} 
             </p>
           </div>
         </div>

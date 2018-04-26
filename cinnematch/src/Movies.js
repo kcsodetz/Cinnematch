@@ -69,18 +69,23 @@ class Movies extends React.Component{
     ev.preventDefault()
     let movie = {...this.state.movie};
     var rating = ev.target.movieRating.value
-
-    if(rating.length === 0){
-      rating = 0
-      window.alert("YES")
-    }
-
+    var default_rate = "NA"
+    
     if(rating > 10){
       rating = 10
+      default_rate = 10
     }
     if(rating < 0){
       rating = 0
+      default_rate = 0
     }
+    if (rating <= 10 && rating >= 0) {
+      default_rate = 0
+    }
+    if (default_rate === "NA") {
+      rating = "NA"
+    }
+    // window.alert("Rating is" + rating + " and def rate is " + default_rate)
     movie['rating'] = rating
     this.setState({
       movie
@@ -115,7 +120,10 @@ class Movies extends React.Component{
     const userId = this.props.uid
     const movie = this.state.movie['title']
     this.state.movies[movie] = this.state.movie
-    this.state.movie['rating'] = "NA"
+    var rate_check = this.state.movie['rating']
+    if (rate_check === undefined) {
+      this.state.movie['rating'] = "NA"
+    }
     base.post(`users/${userId}`, {
       data: this.state.movies
     }).then(() => {

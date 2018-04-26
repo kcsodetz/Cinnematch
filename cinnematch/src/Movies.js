@@ -97,6 +97,7 @@ class Movies extends React.Component{
     this.setState({
       movies: this.state.movies
     });
+    window.alert("Success! Movie Added!")
   }
 
   loadProfile() {

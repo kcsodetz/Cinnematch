@@ -143,7 +143,6 @@ class Movies extends React.Component{
       .then(json => this.setState({ json }))
       .then((load) => this.loadProfile())
       .then((populate)=> this.populatePage())
-      .then((add) => this.addMovie(props))
   }
 
   /**
@@ -167,7 +166,7 @@ class Movies extends React.Component{
                   ref='movie-name-ref'
                   className="input-group field"
                   name="movieName"
-                  placeholder="Enter the name of your movie"
+                  placeholder="Search for a movie here"
                   required
                   autoFocus
                 />
@@ -175,7 +174,7 @@ class Movies extends React.Component{
                 
           </div>
           <br></br>
-          <input type="submit" value="Add Movie" onSubmit={this.handleChange} />
+          <input type="submit" value="Search Movie" onSubmit={this.handleChange} />
           {this.state.showComponenet ? 
             <MovieDisplay props={this.state.movie}/> :
               null
@@ -187,6 +186,9 @@ class Movies extends React.Component{
             </ul>
           </div>
          </div>
+         <div>
+           <button onClick={this.addMovie}>Add Movie</button>
+        </div>
          </div>
       </div>   
     );

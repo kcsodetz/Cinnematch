@@ -90,7 +90,7 @@ class App extends Component {
             <div id="testPosition">
               <header className="Left" >
                 <HeaderBar>
-                <a href='/home' data-nav={true}><img src={logo} style={{height:40}}/></a>
+                <a href='/home' data-nav={true}><img src={logo} style={{height:40}} alt=''/></a>
 
                   <a href='/home' alt='' data-nav={true} data-color='rgb(218, 165, 32)'>Cinnematch</a>
 

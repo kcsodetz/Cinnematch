@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import logo from './cmlogo.png';
+import logo from './cinnematch logo 2.png';
+import logo2 from './cinnematch logo.png';
 import Login from './Login';
 import About from './About'
 import Movies from './Movies';
@@ -92,7 +93,8 @@ class App extends Component {
             <div >
               <header className="Left" >
                 <HeaderBar>
-                  {/* <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a> */}
+                <a href='/home' data-nav={true}><img src={logo} style={{height:40}}/></a>
+
                   <a href='/home' data-nav={true} data-color='rgb(218, 165, 32)'>Cinnematch</a>
 
                   {this.signedIn() ?
@@ -199,6 +201,7 @@ class App extends Component {
                   <p className="Center">Welcome {this.state.username.substr(0, this.state.username.indexOf("@"))}! </p> :
                   <p className="Center">Login to get started!</p>
                 }
+                <p className="Center"><img src={logo2} style={{height:500}}/></p>
                   </div>} />
             </Switch>
           </div>

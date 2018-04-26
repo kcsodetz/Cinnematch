@@ -1,4 +1,5 @@
 import React from 'react'
+import grayX from './delete x.png';
 
 class Showtimes extends React.Component{
   constructor() {
@@ -6,6 +7,8 @@ class Showtimes extends React.Component{
     this.state = {
       json: {},
       listView: [],
+      listItems: [],
+      movieInfo: {},
       rendered: false
     };
     this.apiRequest = this.apiRequest.bind(this);
@@ -13,7 +16,44 @@ class Showtimes extends React.Component{
 
 
   populatePage() {
-    console.log(this.state.json);
+    const keys = Object.keys(this.state.json.results)
+    const length = keys.length
+    console.log(this.state.json.results[keys]);
+
+    const path = 'https://image.tmdb.org/t/p/w500/'
+    var i = 0;
+
+    var listItems = []
+
+    for(i = 0; i < length; i++){
+      listItems.push (
+        <div className="column">
+        <div className="Center">
+          <p key={i}>
+          {this.state.json.results[i].title}
+          </p>
+          <img style={{height:300}} src={path + this.state.json.results[i]['poster_path']}/>
+        </div>
+        </div>
+        )
+         
+       
+    }
+
+    
+    // const listItems = keys.map((i) => 
+    //   <div>
+    //   <p key={i}>
+    //   <img src={grayX} style={{height:20}}/>
+    //   {this.state.json.results[i].title}
+    //   </p>
+    //   </div>
+    // ); 
+
+    this.setState({
+      listItems   
+    });
+
   }
 
   /**
@@ -38,6 +78,7 @@ class Showtimes extends React.Component{
           {/* <button onClick={this.apiRequest()}>Whats in Theaters</button> */}
 
           <button className="Center" onClick={this.apiRequest}>Whats in Theaters</button>
+          {this.state.listItems}
         </div>
       </div>   
     );

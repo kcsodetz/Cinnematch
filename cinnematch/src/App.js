@@ -90,7 +90,7 @@ class App extends Component {
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
         <div>
           <div className="App">
-            <div >
+            <div id="testPosition">
               <header className="Left" >
                 <HeaderBar>
                 <a href='/home' data-nav={true}><img src={logo} style={{height:40}}/></a>
@@ -142,7 +142,7 @@ class App extends Component {
               this.signedIn() ?
               <div>
                 <header className="w3-container w3-goldenrod">
-                  <h1 className="Center">Home</h1>
+                  <h1 className="Center" id="ProfileBar">Home</h1>
                 </header>
               <p className="Center">Welcome {this.state.username.substr(0, this.state.username.indexOf("@"))}! </p></div> :
               <Login/>

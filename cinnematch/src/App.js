@@ -156,7 +156,7 @@ class App extends Component {
                     firebaseNotesSynced={this.state.firebaseSynced}
                     {...actions}
                   />
-                  : <Redirect to="/login" />
+                  : <Redirect to="/home" />
               )} />
               <Route path="/movies" render={() => (
                 this.signedIn()
@@ -164,28 +164,28 @@ class App extends Component {
                     firebaseNotesSynced={this.state.firebaseSynced}
                     {...actions}
                   />
-                  : <Redirect to="/login" />
+                  : <Redirect to="/home" />
               )} />
               <Route path="/profile" render={() => (
                 this.signedIn()
                   ? <Profile
                     firebaseNotesSynced={this.state.firebaseSynced}
                   />
-                  : <Redirect to="/login" />
+                  : <Redirect to="/home" />
               )} />
               <Route path="/intheaters" render={() => (
                 this.signedIn()
                   ? <InTheaters
                     firebaseNotesSynced={this.state.firebaseSynced}
                   />
-                  : <Redirect to="/login" />
+                  : <Redirect to="/home" />
               )} />
               <Route path="/discussion" render={() => (
                 this.signedIn()
                   ? <Discussion
                     firebaseNotesSynced={this.state.firebaseSynced}
                   />
-                  : <Redirect to="/login" />
+                  : <Redirect to="/home" />
               )} />
               <Route path="/o" render={() => (
                 this.signedIn()

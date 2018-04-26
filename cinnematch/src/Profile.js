@@ -59,12 +59,14 @@ class Profile extends Component{
 
     var i = 0;
     const listItems = movieNames.map((movieTitles) => 
-      <div>
+      <div className="column">
       <p key={movieTitles}><button className="Picture" onClick={() => this.removeMovie(movieTitles)}>
       <img src={grayX} style={{height:20}}/>
       </button>{movieTitles + " | Rating: " + `${this.state.movies[movieTitles]['rating']}` + "/10"}
       </p>
+      <div className="picture-border">
       <img style={{height:300}} src={this.state.movies[movieTitles]['poster_path']}/>
+      </div>
       </div>
     ); 
 
@@ -108,6 +110,7 @@ class Profile extends Component{
         </header>
         <div className="LeftAdjustedMargin">
           <h1 className="myMovies"> My Movies </h1>
+          <p>Click 'x' to remove from list</p>
           <div>
           <form id="movie-form" onSubmit={this.removeMovie}>
            
@@ -117,7 +120,7 @@ class Profile extends Component{
           </div>
           <div>
             <p>
-            Click 'x' to remove from list
+            
 
               {this.state.listItems} 
             </p>

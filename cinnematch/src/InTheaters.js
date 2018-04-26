@@ -27,13 +27,13 @@ class Showtimes extends React.Component{
 
     for(i = 0; i < length; i++){
       listItems.push (
+        <div className="LeftAdjustedMargin">
         <div className="column">
-        <div className="Center">
           <p key={i}>
           {this.state.json.results[i].title + ": " + this.state.json.results[i].vote_average + "/10"}
           </p>
           <img style={{height:300}} src={path + this.state.json.results[i]['poster_path']}/>
-        </div>
+          </div>
         </div>
         )
          
@@ -77,7 +77,7 @@ class Showtimes extends React.Component{
         <div>
           {/* <button onClick={this.apiRequest()}>Whats in Theaters</button> */}
 
-          <button className="Center" onClick={this.apiRequest}>Whats in Theaters</button>
+          <button className="LeftAdjustedMargin" onClick={this.apiRequest}>Whats in Theaters</button>
           {this.state.listItems}
         </div>
       </div>   

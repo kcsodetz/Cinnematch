@@ -66,8 +66,12 @@ class Movies extends React.Component{
   rateMovie(ev){
     ev.preventDefault()
     let movie = {...this.state.movie};
-    console.log(ev.target.movieRating.value)
     var rating = ev.target.movieRating.value
+
+    if(rating.length === 0){
+      rating = 0
+      window.alert("YES")
+    }
 
     if(rating > 10){
       rating = 10
@@ -86,7 +90,6 @@ class Movies extends React.Component{
    * @param {Object} newItem 
    */
   addItem(newItem){
-    console.log(this.state.movies)
     this.setState({
       movies: this.state.movies
     });
@@ -96,7 +99,6 @@ class Movies extends React.Component{
   loadProfile() {
     base.fetch(`users/${this.props.uid}`, {
     }).then(data => {
-      console.log(data)
       this.setState({profile: this.props.uid, movies: data})
     }).catch(error => {
       //handle error
@@ -111,7 +113,7 @@ class Movies extends React.Component{
     const userId = this.props.uid
     const movie = this.state.movie['title']
     this.state.movies[movie] = this.state.movie
-    console.log(this.state.movies)
+    this.state.movie['rating'] = "NA"
     base.post(`users/${userId}`, {
       data: this.state.movies
     }).then(() => {
@@ -127,7 +129,6 @@ class Movies extends React.Component{
    */
   handleChange(event) {
     event.preventDefault()
-    console.log(event.target.movieName.value)
     const movieName = event.target.movieName.value
     this.fetchData(movieName)
   }

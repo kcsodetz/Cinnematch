@@ -39,16 +39,6 @@ class Showtimes extends React.Component{
        
     }
 
-    
-    // const listItems = keys.map((i) => 
-    //   <div>
-    //   <p key={i}>
-    //   <img src={grayX} style={{height:20}}/>
-    //   {this.state.json.results[i].title}
-    //   </p>
-    //   </div>
-    // ); 
-
     this.setState({
       listItems   
     });

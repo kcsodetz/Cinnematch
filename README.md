@@ -7,11 +7,15 @@ Ken Sodetz - sodetz@purdue.edu
 Cyrus Santiago - santiac@purdue.edu
 
 Connor Todd - todd37@purdue.edu
-### Technologies To Be Used
+### Technologies Used
 * Node JS
 * React JS
 * Visual Studio Code
 * Google Firebase
 
+### Code and Guides Used
+* W3 Schools CSS example code
+* React Tutorial base code
+* Google Firebase example code
 
 

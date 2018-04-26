@@ -68,6 +68,7 @@ class Movies extends React.Component{
     let movie = {...this.state.movie};
     console.log(ev.target.movieRating.value)
     var rating = ev.target.movieRating.value
+
     if(rating > 10){
       rating = 10
     }
@@ -200,7 +201,6 @@ class Movies extends React.Component{
                 name="movieRating"
                 placeholder="Rate Movie Here"
                 required
-                autoFocus
               />
           </label>
           <input type="submit" value="Rate Movie " onSubmit={this.rateMovie} />

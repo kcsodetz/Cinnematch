@@ -51,7 +51,7 @@ class Profile extends Component{
       <div className="column-og">
       <p key={movieTitles}><button className="Picture" onClick={() => this.removeMovie(movieTitles)}>
       <img src={grayX} style={{height:20}} alt=''/>
-      </button>{movieTitles + " | Rating: " + `${this.state.movies[movieTitles]['rating']}` + "/10"}
+      </button>{movieTitles + " | " + `${this.state.movies[movieTitles]['rating']}` + "/10"}
       </p>
       <div className="picture-border">
       <img style={{height:300}} src={this.state.movies[movieTitles]['poster_path']} alt=''/>
@@ -88,8 +88,6 @@ class Profile extends Component{
   }
 
   render() {
-
-    // this.loadProfile()
 
     return (
       <div>

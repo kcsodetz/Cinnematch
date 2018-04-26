@@ -95,7 +95,7 @@ class App extends Component {
                   {/* <a href='/home' data-logo={true} data-color='goldenrod'><img src={logo}/></a> */}
                   <a href='/home' data-nav={true} data-color='rgb(218, 165, 32)'>Cinnematch</a>
 
-                  {this.state.uid != null ?
+                  {this.signedIn() ?
                     <div data-submenu_button={true} data-submenu_key='profile'>
                       <img src={this.state.profilepic} style={{ height: '1.8em', borderRadius: '0.9em' }} />
                       <span title='profile'>{this.state.username.substr(0, this.state.username.indexOf("@"))}</span>
@@ -138,7 +138,15 @@ class App extends Component {
             </div>
             <Switch>
               <Route path='/about' component={About} />
-              <Route path='/login' component={Login} />
+              <Route path='/login' render = { () => (
+              this.signedIn() ?
+              <div>
+                <header className="w3-container w3-goldenrod">
+                  <h1 className="Center">Home</h1>
+                </header>
+              <p className="Center">Welcome {this.state.username.substr(0, this.state.username.indexOf("@"))}! </p></div> :
+              <Login/>
+              )} />
               <Route path="/profile" render={() => (
                 this.signedIn()
                   ? <Profile
@@ -187,7 +195,7 @@ class App extends Component {
                 <div><header className="w3-container w3-goldenrod">
                   <h1 className="Center">Home</h1>
                 </header>
-                {this.state.uid != null ? 
+                {this.signedIn() ? 
                   <p className="Center">Welcome {this.state.username.substr(0, this.state.username.indexOf("@"))}! </p> :
                   <p className="Center">Login to get started!</p>
                 }

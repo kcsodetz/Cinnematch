@@ -112,12 +112,15 @@ class App extends Component {
                     <div style={{ color: 'rgb(218, 165, 32)' }}>My Profile</div>
                   </div>
                   <div data-submenu_item={true} data-submenu_key='profile' data-submenu_position='body'>
+                    <a href='/profile' title='User Info'>My Movies</a>
+                  </div>
+                  <div data-submenu_item={true} data-submenu_key='profile' data-submenu_position='body'>
                     <a href='/profile' title='User Info'>User Info</a>
                   </div>
                   <div data-submenu_item={true} data-submenu_key='settings' data-submenu_position='body'>
                     <a href='/change-username' title='User Info'>Change Username</a>
                   </div>
-                  <div data-submenu_item={true} data-submenu_key='profile' data-submenu_position='footer'>
+                  <div data-submenu_item={true} data-submenu_key='profile' data-submenu_position='body'>
                     <a href='/signout' title='Logout' onClick={this.signOut}>Logout</a>
                   </div>
                 </HeaderBar>
@@ -144,7 +147,7 @@ class App extends Component {
                 <header className="w3-container w3-goldenrod">
                   <h1 className="Center" id="ProfileBar">Home</h1>
                 </header>
-              <p className="Center">Welcome {this.state.username.substr(0, this.state.username.indexOf("@"))}! </p></div> :
+                <Redirect to="/home" /></div> :
               <Login/>
               )} />
               <Route path="/profile" render={() => (

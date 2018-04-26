@@ -32,6 +32,7 @@ class Movies extends React.Component{
     }
     this.handleChange = this.handleChange.bind(this);
     this.addMovie = this.addMovie.bind(this)
+    this.getRealName = this.getRealName.bind(this)
   }
 
   /**
@@ -57,6 +58,18 @@ class Movies extends React.Component{
     });
   }
 
+  getRealName(name){
+    return this.state.movie['title']
+  }
+
+  componentDidMount() {
+    base.syncState(`users/${this.props.uid}`, {
+      context: this,
+      state: 'movies',
+    });
+    this.loadProfile()
+  }
+
   /**
    * Helper to add the new movie object to the database
    * @param {Object} newItem 
@@ -68,14 +81,25 @@ class Movies extends React.Component{
     });
   }
 
+  loadProfile() {
+    base.fetch(`users/${this.props.uid}`, {
+    }).then(data => {
+      console.log(data)
+      this.setState({profile: this.props.uid, movies: data})
+    }).catch(error => {
+      //handle error
+    })
+  }
+
   /**
    * Helper to add a new movie object 
    * @param {string} name 
    */
   addMovie(name){
     const userId = this.props.uid
-    const movie = name
+    const movie = this.state.movie['title']
     this.state.movies[movie] = this.state.movie
+    console.log(this.state.movies)
     base.post(`users/${userId}`, {
       data: this.state.movies
     }).then(() => {
@@ -117,7 +141,8 @@ class Movies extends React.Component{
     fetch(url)
       .then(response => response.json())
       .then(json => this.setState({ json }))
-      .then((populate) => this.populatePage())
+      .then((load) => this.loadProfile())
+      .then((populate)=> this.populatePage())
       .then((add) => this.addMovie(props))
   }
 
@@ -125,6 +150,7 @@ class Movies extends React.Component{
    * Render function 
    */
   render() {
+
     return(
       <div>
         <div className="CenterNoMargin">

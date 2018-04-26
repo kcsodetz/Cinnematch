@@ -36,7 +36,7 @@ class Profile extends Component{
       context: this,
       state: 'movies',
     });
-    this.populatePage()
+    this.loadProfile()
   }
 
   removeItem(newItem) {
@@ -46,30 +46,27 @@ class Profile extends Component{
   }
 
   populatePage() {
-    // const movieNames = Object.keys(this.state.movies);
-    // const length = movieNames.length;
-    // window.alert(length);
-    // for (var i = 0; i < length; i++) {
-    //   const currentMovie = movieNames[i]
-    // }
+    const movieNames = Object.keys(this.state.movies);
+    const length = movieNames.length;
 
-    Object.keys(this.state.movies).forEach(function(key) {
-      console.log(key, this.state.movies[key]);
-    });
-    
-    // const listItems = movieNames.map((movieNames) => 
-    //   <li key={movieNames}>{movieNames}</li>
-    // ); 
-
-    // this.setState({
-    //   listItems   
+    // Object.keys(this.state.movies).forEach(function(key) {
+    //   console.log(key, this.state.movies[key]);
     // });
+    
+    const listItems = movieNames.map((movieNames) => 
+      <li key={movieNames}>{movieNames}</li>
+    ); 
+
+    this.setState({
+      listItems   
+    });
   }
 
   loadProfile() {
-    base.fetch('users', {
+    base.fetch(`users/${this.props.uid}`, {
     }).then(data => {
-      this.setState({profile: this.props.uid,movies: data[this.props.uid]})
+      console.log(data)
+      this.setState({profile: this.props.uid, movies: data})
       this.populatePage()
     }).catch(error => {
       //handle error
@@ -84,12 +81,16 @@ class Profile extends Component{
     this.state.movies[temp] = null
     base.remove(`users/${userId}/${movie}`).then(() => {
       this.removeItem(movie)
+      this.loadProfile()
     }).catch(error => {
       //handle error
     });
   }
 
   render() {
+
+    // this.loadProfile()
+
     return (
       <div>
         <header className="w3-container w3-goldenrod">

@@ -6,7 +6,7 @@ import Login from './Login';
 import About from './About'
 import Movies from './Movies';
 import Profile from './Profile'
-import Showtimes from './Showtimes';
+import InTheaters from './InTheaters';
 import Discussion from './Discussion'
 import SignOut from './SignOut'
 import HeaderBar from 'header-bar'
@@ -129,7 +129,7 @@ class App extends Component {
 
                 <Link to="/movies"><p href="#" className="w3-bar-item w3-button w3-hover-goldenrod">Rate Movies</p></Link>
 
-                <Link to="/showtimes"><p href="#" className="w3-bar-item w3-button w3-hover-goldenrod">Showtimes</p></Link>
+                <Link to="/intheaters"><p href="#" className="w3-bar-item w3-button w3-hover-goldenrod">In Theaters</p></Link>
               </div>
               <div>
                 <div className="w3-container">
@@ -170,9 +170,9 @@ class App extends Component {
                   />
                   : <Redirect to="/login" />
               )} />
-              <Route path="/showtimes" render={() => (
+              <Route path="/intheaters" render={() => (
                 this.signedIn()
-                  ? <Showtimes
+                  ? <InTheaters
                     firebaseNotesSynced={this.state.firebaseSynced}
                   />
                   : <Redirect to="/login" />

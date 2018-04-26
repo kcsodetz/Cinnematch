@@ -44,8 +44,8 @@
     padding :5px;
 }
  
-.headerbar{
-    position:fixed!important;z-index:1;overflow:auto
+.header-bar{
+    position:fixed!important;z-index:1;
 }
 .App-header {
     background-color: rgb(247, 222, 0);

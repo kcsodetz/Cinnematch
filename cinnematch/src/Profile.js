@@ -99,21 +99,9 @@ class Profile extends Component{
           <h1 className="myMovies"> My Movies </h1>
           <div>
           <form id="movie-form" onSubmit={this.removeMovie}>
-            <div className="input-group">
-              <label htmlFor="movieName">
-                  <input
-                    type="text"
-                    className="input-group field"
-                    name="movieRemove"
-                    placeholder="Enter the name of movie to remove"
-                    required
-                    autoFocus
-                  />
-                  </label>
-                  
-            </div>
+           
             <br></br>
-            <input type="submit" value="Delete" onSubmit={this.removeMovie} />
+           
           </form>
           </div>
           <div>

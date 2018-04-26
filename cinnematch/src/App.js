@@ -104,19 +104,13 @@ class App extends Component {
                     </div>
                   }
 
-                  <div data-submenu_button={true} data-submenu_key='settings'><span title='settings'>Settings</span></div>
                   <div data-submenu_item={true} data-submenu_key='profile' data-submenu_position='header'>
                     <div style={{ color: 'rgb(218, 165, 32)' }}>My Profile</div>
                   </div>
                   <div data-submenu_item={true} data-submenu_key='profile' data-submenu_position='body'>
                     <a href='/profile' title='User Info'>My Movies</a>
                   </div>
-                  <div data-submenu_item={true} data-submenu_key='profile' data-submenu_position='body'>
-                    <a href='/profile' title='User Info'>User Info</a>
-                  </div>
-                  <div data-submenu_item={true} data-submenu_key='settings' data-submenu_position='body'>
-                    <a href='/change-username' title='User Info'>Change Username</a>
-                  </div>
+          
                   <div data-submenu_item={true} data-submenu_key='profile' data-submenu_position='body'>
                     <a href='/signout' title='Logout' onClick={this.signOut}>Logout</a>
                   </div>

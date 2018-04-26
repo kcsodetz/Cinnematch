@@ -3,6 +3,8 @@ import 'react-dropdown/style.css'
 import MovieDisplay from './MovieDisplay';
 import base from './base'
 import './Movies.css'
+import { Link, Switch, Route, Redirect } from 'react-router-dom'
+
 
 /**
  * Class allowing the user to rate and add a movie to their profile
@@ -208,7 +210,7 @@ class Movies extends React.Component{
         </div>
           <br></br>
         </form> 
-          <button className="w3-goldenrod" onClick={this.addMovie}>Add to My Movies</button>
+          <button className="w3-goldenrod" onClick={this.addMovie}><Link to="/profile">Add to My Movies</Link></button>
           
             <MovieDisplay props={this.state.movie}/></div> :
               null

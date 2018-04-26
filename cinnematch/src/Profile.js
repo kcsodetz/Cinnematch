@@ -50,16 +50,18 @@ class Profile extends Component{
   populatePage() {
     const movieNames = Object.keys(this.state.movies);
     const length = movieNames.length;
+
     console.log(movieNames)
 
     // Object.keys(this.state.movies).forEach(function(key) {
     //   console.log(key, this.state.movies[key]);
     // });
-    
-    const listItems = movieNames.map((movieNames) => 
-      <p key={movieNames}><button className="Picture" onClick={() => this.removeMovie(movieNames)}>
+
+    var i = 0;
+    const listItems = movieNames.map((movieTitles) => 
+      <p key={movieTitles}><button className="Picture" onClick={() => this.removeMovie(movieTitles)}>
       <img src={grayX} style={{height:20}}/>
-      </button>{movieNames}</p>
+      </button>{movieTitles + " | Rating: " + `${this.state.movies[movieTitles]['rating']}` + "/10"}</p>
     ); 
 
     this.setState({

@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import './Profile.css'
-import firebase from 'firebase/database'
 import base from './base'
 import grayX from './delete x.png';
-import logo from './cinnematch logo.png';
-
-
 
 /**
  * Class for Profile component
@@ -51,23 +47,14 @@ class Profile extends Component{
 
   populatePage() {
     const movieNames = Object.keys(this.state.movies);
-    const length = movieNames.length;
-
-    console.log(movieNames)
-
-    // Object.keys(this.state.movies).forEach(function(key) {
-    //   console.log(key, this.state.movies[key]);
-    // });
-
-    var i = 0;
     const listItems = movieNames.map((movieTitles) => 
       <div className="column-og">
       <p key={movieTitles}><button className="Picture" onClick={() => this.removeMovie(movieTitles)}>
-      <img src={grayX} style={{height:20}}/>
+      <img src={grayX} style={{height:20}} alt=''/>
       </button>{movieTitles + " | Rating: " + `${this.state.movies[movieTitles]['rating']}` + "/10"}
       </p>
       <div className="picture-border">
-      <img style={{height:300}} src={this.state.movies[movieTitles]['poster_path']}/>
+      <img style={{height:300}} src={this.state.movies[movieTitles]['poster_path']} alt=''/>
       </div>
       </div>
     ); 
@@ -80,7 +67,6 @@ class Profile extends Component{
   loadProfile() {
     base.fetch(`users/${this.props.uid}`, {
     }).then(data => {
-      console.log(data)
       this.setState({profile: this.props.uid, movies: data})
       this.populatePage()
     }).catch(error => {

@@ -195,15 +195,9 @@ class Movies extends React.Component{
           <br></br>
           <input type="submit" value="Search Movie" onSubmit={this.handleChange} />
           {this.state.showComponenet ? 
-          <div>
-          <button className="w3-goldenrod" onClick={this.addMovie}>Add to My Movies</button>
           
-            <MovieDisplay props={this.state.movie}/></div> :
-              null
-          }
-        </form>
-        {this.state.showComponenet ?
-        <form id="movie-rating-form" onSubmit={this.rateMovie} >
+          <div>
+            <form id="movie-rating-form" onSubmit={this.rateMovie} >
         <div className="input-group">
           <label htmlFor="movieRating">
               <input
@@ -219,7 +213,15 @@ class Movies extends React.Component{
           <input type="submit" value="Rate Movie" />
         </div>
           <br></br>
-        </form> : null }
+        </form> 
+          <button className="w3-goldenrod" onClick={this.addMovie}>Add to My Movies</button>
+          
+            <MovieDisplay props={this.state.movie}/></div> :
+              null
+          }
+        </form>
+        
+        
       
         <div className="row">
           <div className="medium-8 medium-offset-2 column">

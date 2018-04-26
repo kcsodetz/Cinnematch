@@ -13,8 +13,9 @@ class About extends React.Component{
         <h1 className="Center" style={{ color: 'rgb(255, 255, 255)' }}> About </h1>
         </header>
         <p className="LeftAdjustedMargin" >Cinnematch allows you to rate, discover, and keep track of 
-          all the movies you have ever seen or want to see! Cinnematch also helps you
-          find and connect with individuals from your area that share your same taste!</p>
+          all the movies you have ever seen or want to see! </p>
+          <p className="LeftAdjustedMargin">Created for Purdue CS 252 Spring 2018 by Cyrus Santiago, Connor Todd, and Ken Sodetz. Logo created by Rylan Santos.</p>
+          <p className="LeftAdjustedMargin" href="https://github.com/kcsodetz/Cinnematch">View our source code at https://github.com/kcsodetz/Cinnematch</p>
       </div>   
     );
   }

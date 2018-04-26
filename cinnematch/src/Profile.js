@@ -50,6 +50,7 @@ class Profile extends Component{
   populatePage() {
     const movieNames = Object.keys(this.state.movies);
     const length = movieNames.length;
+    console.log(movieNames)
 
     // Object.keys(this.state.movies).forEach(function(key) {
     //   console.log(key, this.state.movies[key]);

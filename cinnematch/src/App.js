@@ -85,10 +85,10 @@ class App extends Component {
     }
 
     return (
-      <html>
+      <div>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
-        <body>
+        <div>
           <div className="App">
             <div >
               <header className="Left" >
@@ -123,18 +123,16 @@ class App extends Component {
                 </HeaderBar>
               </header>
 
-              <div class="w3-sidebar w3-bar-block w3-light-grey">
+              <div className="w3-sidebar w3-bar-block w3-light-grey">
 
-                <Link to="/about"><a href="#" class="w3-bar-item w3-button w3-hover-goldenrod">About</a></Link>
+                <Link to="/about"><p href="#" className="w3-bar-item w3-button w3-hover-goldenrod">About</p></Link>
 
-                <Link to="/movies"><a href="#" class="w3-bar-item w3-button w3-hover-goldenrod">Rate Movies</a></Link>
+                <Link to="/movies"><p href="#" className="w3-bar-item w3-button w3-hover-goldenrod">Rate Movies</p></Link>
 
-                <Link to="/showtimes"><a href="#" class="w3-bar-item w3-button w3-hover-goldenrod">Showtimes</a></Link>
-
-                <Link to="/discussion"><a href="#" class="w3-bar-item w3-button w3-hover-goldenrod">Discussion</a></Link>
+                <Link to="/showtimes"><p href="#" className="w3-bar-item w3-button w3-hover-goldenrod">Showtimes</p></Link>
               </div>
               <div>
-                <div class="w3-container">
+                <div className="w3-container">
                 </div>
               </div>
             </div>
@@ -205,8 +203,8 @@ class App extends Component {
                   </div>} />
             </Switch>
           </div>
-        </body>
-      </html>
+        </div>
+      </div>
     );
   }
 }

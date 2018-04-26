@@ -18,7 +18,7 @@ class Showtimes extends React.Component{
   populatePage() {
     const keys = Object.keys(this.state.json.results)
     const length = keys.length
-    console.log(this.state.json.results[keys]);
+    console.log(this.state.json.results);
 
     const path = 'https://image.tmdb.org/t/p/w500/'
     var i = 0;
@@ -30,7 +30,7 @@ class Showtimes extends React.Component{
         <div className="column">
         <div className="Center">
           <p key={i}>
-          {this.state.json.results[i].title}
+          {this.state.json.results[i].title + ": " + this.state.json.results[i].vote_average + "/10"}
           </p>
           <img style={{height:300}} src={path + this.state.json.results[i]['poster_path']}/>
         </div>

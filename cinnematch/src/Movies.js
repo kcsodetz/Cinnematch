@@ -157,7 +157,7 @@ class Movies extends React.Component{
             <h1 className="Center">Rate Movies</h1>
          </header>
         </div> 
-        <div className="Center">
+        <div className="LeftAdjustedMargin">
         <form id="movie-form" onSubmit={this.handleChange}>
           <div className="input-group">
             <label htmlFor="movieName">

@@ -196,10 +196,10 @@ class App extends Component {
                   <h1 className="Center">Home</h1>
                 </header>
                 {this.signedIn() ? 
-                  <p className="Center">Welcome {this.state.username.substr(0, this.state.username.indexOf("@"))}! </p> :
-                  <p className="Center">Login to get started!</p>
+                  <p className="LeftAdjustedMargin">Welcome {this.state.username.substr(0, this.state.username.indexOf("@"))}! </p> :
+                  <p className="LeftAdjustedMargin">Login to get started!</p>
                 }
-                <p className="Center"><img src={logo2} style={{height:500}}/></p>
+                <p className="LeftAdjustedMargin"><img src={logo2} style={{height:500}}/></p>
                   </div>} />
             </Switch>
           </div>

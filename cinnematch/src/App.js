@@ -115,7 +115,7 @@ class App extends Component {
                     <a href='/profile' title='User Info'>User Info</a>
                   </div>
                   <div data-submenu_item={true} data-submenu_key='settings' data-submenu_position='body'>
-                    <a href='/change-password' title='User Info'>Change Username</a>
+                    <a href='/change-username' title='User Info'>Change Username</a>
                   </div>
                   <div data-submenu_item={true} data-submenu_key='profile' data-submenu_position='footer'>
                     <a href='/signout' title='Logout' onClick={this.signOut}>Logout</a>

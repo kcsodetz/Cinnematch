@@ -75,7 +75,14 @@ class Movies extends React.Component{
     ev.preventDefault()
     let movie = {...this.state.movie};
     console.log(ev.target.movieRating.value)
-    movie['rating'] = ev.target.movieRating.value
+    var rating = ev.target.movieRating.value
+    if(rating > 10){
+      rating = 10
+    }
+    if(rating < 0){
+      rating = 0
+    }
+    movie['rating'] = rating
     this.setState({
       movie
     })

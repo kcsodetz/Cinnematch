@@ -176,7 +176,9 @@ class Movies extends React.Component{
           <br></br>
           <input type="submit" value="Search Movie" onSubmit={this.handleChange} />
           {this.state.showComponenet ? 
-            <MovieDisplay props={this.state.movie}/> :
+          <div>
+          <button className="AddButton w3-goldenrod" onClick={this.addMovie}>Add to My Movies</button>
+            <MovieDisplay props={this.state.movie}/></div> :
               null
           }
         </form>
@@ -186,9 +188,7 @@ class Movies extends React.Component{
             </ul>
           </div>
          </div>
-         <div>
-           <button onClick={this.addMovie}>Add Movie</button>
-        </div>
+        
          </div>
       </div>   
     );

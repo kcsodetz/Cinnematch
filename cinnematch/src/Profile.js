@@ -61,7 +61,10 @@ class Profile extends Component{
     const listItems = movieNames.map((movieTitles) => 
       <p key={movieTitles}><button className="Picture" onClick={() => this.removeMovie(movieTitles)}>
       <img src={grayX} style={{height:20}}/>
-      </button>{movieTitles + " | Rating: " + `${this.state.movies[movieTitles]['rating']}` + "/10"}</p>
+      </button>{movieTitles + " | Rating: " + `${this.state.movies[movieTitles]['rating']}` + "/10"}
+      <img src={this.state.movies[movieTitles]['poster_path']}/>
+      
+      </p>
     ); 
 
     this.setState({

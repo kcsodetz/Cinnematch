@@ -5,7 +5,7 @@ class InTheaters extends React.Component{
     return(
       <div>
         <header className="w3-container w3-goldenrod">
-          <h1 className="Center">In Theaters</h1>
+          <h1 className="Center" style={{ color: 'rgb(255, 255, 255)' }}>In Theaters</h1>
         </header>
       </div>   
     );

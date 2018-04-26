@@ -154,7 +154,7 @@ class Movies extends React.Component{
       <div>
         <div className="CenterNoMargin">
           <header className="w3-container w3-goldenrod">
-            <h1 className="Center">Rate Movies</h1>
+            <h1 className="Center" style={{ color: 'rgb(255, 255, 255)' }}>Rate Movies</h1>
          </header>
         </div> 
         <div className="LeftAdjustedMargin">

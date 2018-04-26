@@ -13,7 +13,7 @@ const Login = () => {
   return (
     <div>
     <header className="w3-container w3-goldenrod">
-          <h1 className="Center">Login</h1>
+          <h1 className="Center" style={{ color: 'rgb(255, 255, 255)' }}>Login</h1>
         </header>
       <main className="Centerofpage">        
         <button

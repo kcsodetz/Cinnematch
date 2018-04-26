@@ -193,11 +193,11 @@ class App extends Component {
               )} />
               <Route render={() =>
                 <div><header className="w3-container w3-goldenrod">
-                  <h1 className="Center">Home</h1>
+                  <h1 className="Center" style={{ color: 'rgb(255, 255, 255)' }} >Home</h1>
                 </header>
                 {this.signedIn() ? 
-                  <p className="LeftAdjustedMargin">Welcome {this.state.username.substr(0, this.state.username.indexOf("@"))}! </p> :
-                  <p className="LeftAdjustedMargin">Login to get started!</p>
+                  <h1 className="LeftAdjustedMargin">Welcome {this.state.username.substr(0, this.state.username.indexOf("@"))}! </h1> :
+                  <h1 className="LeftAdjustedMargin">Login to get started!</h1>
                 }
                 <p className="LeftAdjustedMargin"><img src={logo2} style={{height:500}}/></p>
                   </div>} />

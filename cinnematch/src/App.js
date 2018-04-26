@@ -126,7 +126,7 @@ class App extends Component {
               </header>
               {this.signedIn() ?
               <div className="w3-sidebar w3-bar-block w3-light-grey">
-              <img src={this.state.profilepic} style={{ height: '13.4em', borderRadius: '0.9em' }} />
+              <Link to="/profile"><img src={this.state.profilepic} style={{ height: '13.4em', borderRadius: '0.9em' }} /></Link>
 
                 <Link to="/about"><p href="#" className="w3-bar-item w3-button w3-hover-goldenrod">About</p></Link>
 

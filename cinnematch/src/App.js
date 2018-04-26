@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import logo from './cinnematch logo 2.png';
 import logo2 from './cinnematch logo.png';
 import Login from './Login';
@@ -11,7 +10,7 @@ import Discussion from './Discussion'
 import SignOut from './SignOut'
 import HeaderBar from 'header-bar'
 import base, { auth } from './base'
-import { Switch, Route, NavLink, Redirect } from 'react-router-dom'
+import { Link, Switch, Route, NavLink, Redirect } from 'react-router-dom'
 import './App.css';
 import { SIGPIPE } from 'constants';
 
@@ -125,8 +124,9 @@ class App extends Component {
                   </div>
                 </HeaderBar>
               </header>
-
+              {this.signedIn() ?
               <div className="w3-sidebar w3-bar-block w3-light-grey">
+              <img src={this.state.profilepic} style={{ height: '13.4em', borderRadius: '0.9em' }} />
 
                 <Link to="/about"><p href="#" className="w3-bar-item w3-button w3-hover-goldenrod">About</p></Link>
 
@@ -134,10 +134,16 @@ class App extends Component {
 
                 <Link to="/intheaters"><p href="#" className="w3-bar-item w3-button w3-hover-goldenrod">In Theaters</p></Link>
               </div>
-              <div>
-                <div className="w3-container">
-                </div>
+              
+              :<div className="w3-sidebar w3-bar-block w3-light-grey">
+
+                <Link to="/about"><p href="#" className="w3-bar-item w3-button w3-hover-goldenrod">About</p></Link>
+
+
               </div>
+
+              }
+              
             </div>
             <Switch>
               <Route path='/about' component={About} />

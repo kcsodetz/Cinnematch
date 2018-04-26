@@ -3,6 +3,8 @@ import './Profile.css'
 import firebase from 'firebase/database'
 import base from './base'
 import grayX from './delete x.png';
+import logo from './cinnematch logo.png';
+
 
 
 /**
@@ -108,6 +110,7 @@ class Profile extends Component{
         <header className="w3-container w3-goldenrod">
           <h1 className="Center" style={{ color: 'rgb(255, 255, 255)' }}>Profile</h1>
         </header>
+       
         <div className="LeftAdjustedMargin">
           <h1 className="myMovies"> My Movies </h1>
           <p>Click 'x' to remove from list</p>

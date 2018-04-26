@@ -104,7 +104,6 @@ class Profile extends Component{
               <label htmlFor="movieName">
                   <input
                     type="text"
-                    ref='movie-name-ref'
                     className="input-group field"
                     name="movieRemove"
                     placeholder="Enter the name of movie to remove"
@@ -119,9 +118,9 @@ class Profile extends Component{
           </form>
           </div>
           <div>
-            <ul>
-              {this.state.listItems}
-            </ul>
+            <p>
+              {this.state.listItems} <input type="submit" value="x" onSubmit={this.removeMovie} />
+            </p>
           </div>
         </div>
       </div>  

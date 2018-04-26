@@ -1,10 +1,8 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-//import Img from 'react-image-load';
 import './MovieDisplay.css';
-// import 'react-image-load/assets/style.css'
+
 /**
- * Displays current movie 
+ * Displays current movie attributes 
  */
 const MovieDisplay = ({props}) => {
 
@@ -26,7 +24,7 @@ const MovieDisplay = ({props}) => {
       {'Overview: '+ overview}
       </div>
       <img
-        src={poster_path}
+        src={poster_path} alt=''
       />
     </div>
   )

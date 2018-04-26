@@ -6,13 +6,11 @@ import About from './About'
 import Movies from './Movies';
 import Profile from './Profile'
 import InTheaters from './InTheaters';
-import Discussion from './Discussion'
 import SignOut from './SignOut'
 import HeaderBar from 'header-bar'
-import base, { auth } from './base'
-import { Link, Switch, Route, NavLink, Redirect } from 'react-router-dom'
+import { auth } from './base'
+import { Link, Switch, Route, Redirect } from 'react-router-dom'
 import './App.css';
-import { SIGPIPE } from 'constants';
 
 /**
  * Main Application 
@@ -94,11 +92,11 @@ class App extends Component {
                 <HeaderBar>
                 <a href='/home' data-nav={true}><img src={logo} style={{height:40}}/></a>
 
-                  <a href='/home' data-nav={true} data-color='rgb(218, 165, 32)'>Cinnematch</a>
+                  <a href='/home' alt='' data-nav={true} data-color='rgb(218, 165, 32)'>Cinnematch</a>
 
                   {this.signedIn() ?
                     <div data-submenu_button={true} data-submenu_key='profile'>
-                      <img src={this.state.profilepic} style={{ height: '1.8em', borderRadius: '0.9em' }} />
+                      <img src={this.state.profilepic} style={{ height: '1.8em', borderRadius: '0.9em' }} alt=''/>
                       <span title='profile'>{this.state.username.substr(0, this.state.username.indexOf("@"))}</span>
                     </div> :
                     <div data-button={true}>
@@ -126,7 +124,7 @@ class App extends Component {
               </header>
               {this.signedIn() ?
               <div className="w3-sidebar w3-bar-block w3-light-grey">
-              <Link to="/profile"><img src={this.state.profilepic} style={{ height: '13.4em', borderRadius: '0.9em' }} /></Link>
+              <Link to="/profile"><img src={this.state.profilepic} style={{ height: '13.4em', borderRadius: '0.9em' }} alt=''/></Link>
 
                 <Link to="/about"><p href="#" className="w3-bar-item w3-button w3-hover-goldenrod">About</p></Link>
 
@@ -186,13 +184,6 @@ class App extends Component {
                   />
                   : <Redirect to="/home" />
               )} />
-              <Route path="/discussion" render={() => (
-                this.signedIn()
-                  ? <Discussion
-                    firebaseNotesSynced={this.state.firebaseSynced}
-                  />
-                  : <Redirect to="/home" />
-              )} />
               <Route path="/o" render={() => (
                 this.signedIn()
                   ? <SignOut
@@ -208,7 +199,7 @@ class App extends Component {
                   <h1 className="LeftAdjustedMargin">Welcome {this.state.username.substr(0, this.state.username.indexOf("@"))}! </h1> :
                   <h1 className="LeftAdjustedMargin">Login to get started!</h1>
                 }
-                <p className="LeftAdjustedMargin"><img src={logo2} style={{height:500}}/></p>
+                <p className="LeftAdjustedMargin"><img src={logo2} style={{height:500}} alt=''/></p>
                   </div>} />
             </Switch>
           </div>

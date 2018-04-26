@@ -1,16 +1,8 @@
 import React from 'react'
-import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
-import {getMovieInfo} from './api-request'
 import MovieDisplay from './MovieDisplay';
-import firebase from 'firebase/database'
 import base from './base'
 import './Movies.css'
-const options = [
-  '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
-]
-
-const defaultOption = options[0]
 
 /**
  * Class allowing the user to rate and add a movie to their profile
@@ -40,7 +32,7 @@ class Movies extends React.Component{
    * Populate the page with movie results 
    */
   populatePage(){
-    if (this.state.json.total_results == 0) {
+    if (this.state.json.total_results === 0) {
       window.alert("Your search for \"" + this.state.movie_query + "\" turned up no results")
       return;
     }
@@ -147,7 +139,7 @@ class Movies extends React.Component{
     var url = `https://api.themoviedb.org/3/search/movie?api_key=d75d2433d1369590a08680adda987f45&query=`;
 
     // check if props is empty
-    if (props.length == 0) {
+    if (props.length === 0) {
       return;
     }
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import grayX from './delete x.png';
 
 class Showtimes extends React.Component{
   constructor() {
@@ -32,7 +31,7 @@ class Showtimes extends React.Component{
           <p key={i}>
           {this.state.json.results[i].title + ": " + this.state.json.results[i].vote_average + "/10"}
           </p>
-          <img style={{height:300}} src={path + this.state.json.results[i]['poster_path']}/>
+          <img style={{height:300}} src={path + this.state.json.results[i]['poster_path']} alt=''/>
           </div>
         </div>
         )

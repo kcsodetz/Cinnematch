@@ -1,4 +1,4 @@
-Cinnematch allows you to rate, discover, and keep track of # Cinnematch
+# Cinnematch
 ## CS 252 HTML Web App Project
 Cinnematch allows you to rate, discover, and keep track of all the movies you have ever seen or want to see! 
 ### Project Members 

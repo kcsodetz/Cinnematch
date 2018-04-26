@@ -27,7 +27,7 @@ class Showtimes extends React.Component{
 
     for(i = 0; i < length; i++){
       listItems.push (
-        <div className="LeftAdjustedMargin">
+        <div className="CenterTheaters">
         <div className="column">
           <p key={i}>
           {this.state.json.results[i].title + ": " + this.state.json.results[i].vote_average + "/10"}
@@ -77,7 +77,7 @@ class Showtimes extends React.Component{
         <div>
           {/* <button onClick={this.apiRequest()}>Whats in Theaters</button> */}
 
-          <button className="LeftAdjustedMargin" onClick={this.apiRequest}>Whats in Theaters</button>
+          <button className="LeftAdjustedMargin" onClick={this.apiRequest}>What's in Theaters?</button>
           {this.state.listItems}
         </div>
       </div>   

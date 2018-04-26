@@ -3,10 +3,14 @@
 }
 
 .column {
-    float: left;
-    width: 50%;
-    padding: 5px;
+    float: right;
+    width: 31.9%;
   }
+
+.column-og {
+    float: left;
+    width: 30%;
+}
 
 /* .picture-border{
     border: 5px solid;

@@ -8,7 +8,6 @@ Cyrus Santiago - santiac@purdue.edu
 
 Connor Todd - todd37@purdue.edu
 ### Technologies Used
-* Node JS
 * React JS
 * Visual Studio Code
 * Google Firebase

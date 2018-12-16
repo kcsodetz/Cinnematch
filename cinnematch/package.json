@@ -8,11 +8,11 @@
     "Connor Todd, todd37@purdue.edu"
   ],
   "dependencies": {
-    "re-base": "^3.2.2",
-    "react": "^16.3.1",
-    "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.3.1",
-    "react-dropdown": "^1.4.0",
+    "re-base": "^3.2.3",
+    "react": "^16.6.3",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^16.6.3",
+    "react-dropdown": "^1.6.3",
     "react-image-load": "^1.1.2",
     "react-router": "3.2.0",
     "react-router-dom": "4.2.2",

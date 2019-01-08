@@ -1,4 +1,7 @@
 # Cinnematch
+
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://choosealicense.com/licenses/mit/)
+
 ## CS 252 HTML Web App Project
 Cinnematch allows you to rate, discover, and keep track of all the movies you have ever seen or want to see! 
 ### Project Members 
